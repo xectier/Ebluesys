@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Overview | Digital Attendance Record Book | Ebluesys</title>
+  <meta name="description" content="Explore the Digital Attendance Record Book platform architecture, interactive tour, and real-time dashboard command center for educational institutions.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563EB%22/><text y=%22.9em%22 x=%22.2em%22 font-size=%2270%22 font-weight=%22bold%22 fill=%22white%22>E</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-group">
+        <div class="logo-icon">E</div>
+        <div class="logo-text">
+          <span class="brand-name">Ebluesys</span>
+          <span class="brand-tag">Attendance Record Book</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="product.html" class="nav-link" style="color:var(--primary-blue); font-weight:700;">Product</a></li>
+          <li><a href="features.html" class="nav-link">Features</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+          <li><a href="security.html" class="nav-link">Security</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Book a Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Page Hero -->
+  <section class="hero" style="padding-bottom:60px;">
+    <div class="container">
+      <div class="hero-content">
+        <span class="badge badge-blue">Product Architecture</span>
+        <h1 class="hero-title" style="margin-top:16px;">Meet Your Digital Attendance Record Book.</h1>
+        <p class="hero-subtitle">
+          A centralized attendance-management platform designed to make attendance simpler for teachers and more useful for administrators.
+        </p>
+      </div>
+
+      <!-- Interactive Product Tour Component -->
+      <div class="product-tour-box">
+        <div class="tour-nav">
+          <button class="tour-tab-btn active" data-tour="dashboard">Dashboard Overview</button>
+          <button class="tour-tab-btn" data-tour="attendance">One-Click Attendance</button>
+          <button class="tour-tab-btn" data-tour="reports">Automated Reports</button>
+          <button class="tour-tab-btn" data-tour="student">Student Profile</button>
+          <button class="tour-tab-btn" data-tour="analytics">Analytics & Trends</button>
+        </div>
+
+        <div class="tour-display">
+          <h3 id="tour-title" style="font-family:var(--font-heading); font-size:22px; font-weight:800; margin-bottom:8px;">Real-Time Institutional Command Dashboard</h3>
+          <p id="tour-desc" style="font-size:14px; color:#94A3B8; margin-bottom:20px;">Live visibility into total attendance, absentees, and section metrics across your school.</p>
+          <div id="tour-body">
+            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-bottom:16px;">
+              <div style="background:#1E293B; padding:12px; border-radius:8px;">Students: <b>1,240</b></div>
+              <div style="background:#1E293B; padding:12px; border-radius:8px;">Present: <b style="color:#34D399;">1,184</b></div>
+              <div style="background:#1E293B; padding:12px; border-radius:8px;">Absent: <b style="color:#F43F5E;">56</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Live Metrics Showcase -->
+  <section class="section section-subtle">
+    <div class="container">
+      <div style="text-align:center; max-width:720px; margin:0 auto 36px;">
+        <span class="badge badge-emerald">Interactive Dashboard Demo</span>
+        <h2 style="font-family:var(--font-heading); font-size:36px; font-weight:800; margin-top:12px;">See Your Institution at a Glance</h2>
+      </div>
+
+      <div style="display:flex; justify-content:center; gap:10px; margin-bottom:24px; flex-wrap:wrap;">
+        <button class="tab-btn dash-filter-btn active" data-filter="today">Today's Total</button>
+        <button class="tab-btn dash-filter-btn" data-filter="week">Weekly Average</button>
+        <button class="tab-btn dash-filter-btn" data-filter="c10">Class 10-A</button>
+        <button class="tab-btn dash-filter-btn" data-filter="c12">Class 12-B</button>
+      </div>
+
+      <div style="background:var(--bg-dark); border-radius:var(--radius-lg); padding:32px; color:#FFF; box-shadow:var(--shadow-xl);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; border-bottom:1px solid var(--border-dark); padding-bottom:16px;">
+          <div>
+            <div style="font-family:var(--font-heading); font-weight:800; font-size:20px;">Institutional Live Metric Stream</div>
+            <div style="font-size:12px; color:#94A3B8;">Sample Demo Data</div>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="padding:8px 16px; font-size:12px;">Request Full Live Demo</a>
+        </div>
+        
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-label">Total Enrolled</span>
+            <span class="kpi-val">1,240</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Present Today</span>
+            <span class="kpi-val" id="kpi-present">1,184</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Absent Today</span>
+            <span class="kpi-val" id="kpi-absent">56</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Attendance Rate</span>
+            <span class="kpi-val" id="kpi-rate">95.5%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-dark" style="text-align:center;">
+    <div class="container">
+      <h2 style="font-family:var(--font-heading); font-size:36px; font-weight:800;">Ready to explore the full product?</h2>
+      <br>
+      <a href="contact.html" class="btn btn-primary" style="padding:14px 32px;">Book a Live Demo</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Ebluesys Technologies Private Limited. All rights reserved.</span>
+        <a href="index.html">Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

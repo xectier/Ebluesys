@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Demo | Contact Ebluesys</title>
+  <meta name="description" content="Request a personalized live demo session of Digital Attendance Record Book with Ebluesys Technologies Private Limited.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563EB%22/><text y=%22.9em%22 x=%22.2em%22 font-size=%2270%22 font-weight=%22bold%22 fill=%22white%22>E</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-group">
+        <div class="logo-icon">E</div>
+        <div class="logo-text">
+          <span class="brand-name">Ebluesys</span>
+          <span class="brand-tag">Attendance Record Book</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="product.html" class="nav-link">Product</a></li>
+          <li><a href="features.html" class="nav-link">Features</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+          <li><a href="security.html" class="nav-link">Security</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary" style="background:var(--primary-blue-hover);">Book a Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero & Form Section -->
+  <section class="section" style="padding-top:140px;">
+    <div class="container" style="max-width:800px;">
+      <div style="text-align:center; margin-bottom:36px;">
+        <span class="badge badge-blue">Live Platform Demo</span>
+        <h1 class="hero-title" style="font-size:36px; margin-top:16px;">Book Your Personalized Live Demo</h1>
+        <p style="color:var(--text-dark-secondary); font-size:16px;">
+          Discover how Digital Attendance Record Book fits your institution's specific needs.
+        </p>
+      </div>
+
+      <div style="background:#FFF; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:40px; box-shadow:var(--shadow-xl);">
+        <form id="contact-page-form" class="form-grid">
+          <div>
+            <label style="font-size:12px; font-weight:600;">Full Name *</label>
+            <input type="text" id="contact-name" class="form-control" required placeholder="e.g. Dr. Rajesh Sharma">
+          </div>
+
+          <div>
+            <label style="font-size:12px; font-weight:600;">Institution Name *</label>
+            <input type="text" id="contact-inst" class="form-control" required placeholder="e.g. St. Xavier International School">
+          </div>
+
+          <div>
+            <label style="font-size:12px; font-weight:600;">Institution Type</label>
+            <select id="contact-type" class="form-control">
+              <option>School</option>
+              <option>College / University</option>
+              <option>Coaching Institute</option>
+              <option>Educational Group</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size:12px; font-weight:600;">Designation</label>
+            <input type="text" id="contact-designation" class="form-control" placeholder="e.g. Principal / Director / IT Head">
+          </div>
+
+          <div>
+            <label style="font-size:12px; font-weight:600;">Phone Number *</label>
+            <input type="tel" id="contact-phone" class="form-control" required placeholder="+91 98765 43210">
+          </div>
+
+          <div>
+            <label style="font-size:12px; font-weight:600;">Email Address *</label>
+            <input type="email" id="contact-email" class="form-control" required placeholder="name@institution.edu.in">
+          </div>
+
+          <div>
+            <label style="font-size:12px; font-weight:600;">Number of Students</label>
+            <select id="contact-students" class="form-control">
+              <option>Under 500</option>
+              <option>500 - 1,500</option>
+              <option>1,500 - 3,000</option>
+              <option>3,000+</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size:12px; font-weight:600;">Current Attendance Method</label>
+            <select id="contact-current-system" class="form-control">
+              <option>Paper Register</option>
+              <option>Excel</option>
+              <option>ERP</option>
+              <option>Mobile App</option>
+              <option>Biometric</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-full">
+            <label style="font-size:12px; font-weight:600;">Message / Specific Requirements</label>
+            <textarea id="contact-message" class="form-control" rows="3" placeholder="Tell us about your attendance workflow..."></textarea>
+          </div>
+
+          <div class="form-full" style="margin-top:8px;">
+            <button type="submit" class="btn btn-primary" style="width:100%; padding:14px;">Request a Demo</button>
+          </div>
+        </form>
+
+        <div id="contact-success" style="display:none; text-align:center; padding:40px 20px;">
+          <div style="width:56px; height:56px; background:rgba(16,185,129,0.2); color:#10B981; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:24px; font-weight:800;">✓</div>
+          <h3 style="font-family:var(--font-heading); font-size:22px; font-weight:800;">Demo Request Received!</h3>
+          <p style="color:var(--text-dark-secondary); margin-top:8px;">Thank you. Our team from Ebluesys Technologies will contact you shortly to schedule your personalized live demo session.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Ebluesys Technologies Private Limited. All rights reserved.</span>
+        <a href="index.html">Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

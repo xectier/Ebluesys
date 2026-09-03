@@ -342,6 +342,17 @@ function initDemoModal() {
       });
     });
   }
+
+  // Handle contact.html standalone form
+  const contactForm = document.getElementById('contact-page-form');
+  const contactSuccess = document.getElementById('contact-success');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      contactForm.style.display = 'none';
+      if (contactSuccess) contactSuccess.style.display = 'block';
+    });
+  }
 }
 
 /* Scroll Intersection Animations */
