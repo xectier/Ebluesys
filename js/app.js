@@ -1,17 +1,19 @@
 /* ==========================================================================
    DIGITAL ATTENDANCE RECORD BOOK - EBLUESYS TECHNOLOGIES
-   Interactive Application Logic
+   Interactive Application Logic (Upgraded Version)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initMobileMenu();
   initProductTabs();
+  initProductTour();
   initDashboardDemo();
   initTeacherWorkflow();
   initRoiCalculator();
   initFaqAccordion();
   initDemoModal();
+  initVideoDemo();
   initScrollAnimations();
 });
 
@@ -62,6 +64,95 @@ function initProductTabs() {
       const activeContent = document.getElementById(`tab-${tabId}`);
       if (activeContent) {
         activeContent.classList.add('active');
+      }
+    });
+  });
+}
+
+/* Interactive Product Tour Component */
+function initProductTour() {
+  const tourBtns = document.querySelectorAll('.tour-tab-btn');
+  const tourTitle = document.getElementById('tour-title');
+  const tourDesc = document.getElementById('tour-desc');
+  const tourBody = document.getElementById('tour-body');
+
+  const tourData = {
+    dashboard: {
+      title: "Real-Time Institutional Command Dashboard",
+      desc: "Live visibility into total attendance, absentees, and section metrics across your school.",
+      body: `
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-bottom:16px;">
+          <div style="background:#1E293B; padding:12px; border-radius:8px;">Students: <b>1,240</b></div>
+          <div style="background:#1E293B; padding:12px; border-radius:8px;">Present: <b style="color:#34D399;">1,184</b></div>
+          <div style="background:#1E293B; padding:12px; border-radius:8px;">Absent: <b style="color:#F43F5E;">56</b></div>
+        </div>
+        <div style="background:#1E293B; padding:16px; border-radius:8px;">
+          <div style="font-weight:700; font-size:13px; margin-bottom:8px;">Live Class Attendance Stream</div>
+          <div style="font-size:12px; color:#94A3B8;">Class 10-A: 98% • Class 12-B: 94% • Class 8-C: 91%</div>
+        </div>
+      `
+    },
+    attendance: {
+      title: "One-Click Mobile Attendance Marking",
+      desc: "Fast, touch-optimized classroom marking workflow designed specifically for teachers.",
+      body: `
+        <div style="background:#1E293B; padding:16px; border-radius:8px;">
+          <div style="font-weight:700; margin-bottom:12px;">Class 10-A • Period 2 Mathematics</div>
+          <div style="display:flex; justify-content:space-between; padding:8px; background:#0F172A; border-radius:6px; margin-bottom:6px;">
+            <span>Aarav Sharma</span> <span class="status-pill status-present">PRESENT</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding:8px; background:#0F172A; border-radius:6px;">
+            <span>Devendra Roy</span> <span class="status-pill status-absent">ABSENT</span>
+          </div>
+        </div>
+      `
+    },
+    reports: {
+      title: "Automated Monthly & Daily Attendance Reports",
+      desc: "Instant export of attendance registers in PDF and Excel CSV formats.",
+      body: `
+        <div style="background:#1E293B; padding:16px; border-radius:8px;">
+          <div style="font-weight:700; margin-bottom:8px;">Monthly Register Report Generator</div>
+          <div style="font-size:13px; color:#60A5FA; margin-bottom:12px;">Format: PDF Consolidated Register • Month: September 2026</div>
+          <button class="btn btn-primary" style="padding:6px 16px; font-size:12px;">Download Sample PDF</button>
+        </div>
+      `
+    },
+    student: {
+      title: "Individual Student Attendance Profile & Timeline",
+      desc: "Instant historical lookup of student attendance percentages and absence dates.",
+      body: `
+        <div style="background:#1E293B; padding:16px; border-radius:8px;">
+          <div style="font-weight:700; font-size:15px;">Aarav Sharma (Roll 01)</div>
+          <div style="font-size:13px; color:#34D399; margin:4px 0 12px;">Overall Attendance Rate: 96.8%</div>
+          <div style="font-size:12px; color:#94A3B8;">Recent Absences: 14 Aug (Medical), 02 Sep (Sick Leave)</div>
+        </div>
+      `
+    },
+    analytics: {
+      title: "Actionable Visual Attendance Analytics",
+      desc: "Turn attendance records into trends, comparisons, and actionable administrative insights.",
+      body: `
+        <div style="background:#1E293B; padding:16px; border-radius:8px;">
+          <div style="font-weight:700; margin-bottom:8px;">Monthly Attendance Trend Comparison</div>
+          <div style="font-size:12px; color:#94A3B8;">Aug: 94.2% → Sep: 95.5% (↑ 1.3% Improvement)</div>
+        </div>
+      `
+    }
+  };
+
+  tourBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tourKey = btn.getAttribute('data-tour');
+
+      tourBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const data = tourData[tourKey];
+      if (data) {
+        if (tourTitle) tourTitle.textContent = data.title;
+        if (tourDesc) tourDesc.textContent = data.desc;
+        if (tourBody) tourBody.innerHTML = data.body;
       }
     });
   });
@@ -163,16 +254,12 @@ function initRoiCalculator() {
     studentOutput.textContent = students.toLocaleString();
     teacherOutput.textContent = teachers.toLocaleString();
 
-    // Assumptions:
-    // Manual attendance prep + reporting = ~45 mins/teacher/day = 0.75 hrs
-    // Digital system saves ~70% of manual effort
     const daysPerMonth = 22;
     const hoursSavedPerTeacherMonth = 0.75 * 0.7 * daysPerMonth;
     const totalHoursSavedMonth = Math.round(teachers * hoursSavedPerTeacherMonth);
 
-    // Estimated administrative cost saved per year
-    const totalHoursYear = totalHoursSavedMonth * 10; // 10 academic months
-    const approxHourlyValue = 350; // INR estimated administrative value rate
+    const totalHoursYear = totalHoursSavedMonth * 10;
+    const approxHourlyValue = 350;
     const estimatedSavingsINR = (totalHoursYear * approxHourlyValue).toLocaleString('en-IN');
 
     if (hoursOutput) hoursOutput.textContent = `${totalHoursSavedMonth} hrs/mo`;
@@ -199,6 +286,16 @@ function initFaqAccordion() {
       }
     });
   });
+}
+
+/* Video Demo Frame Interaction */
+function initVideoDemo() {
+  const playBtn = document.querySelector('.play-btn-circle');
+  if (playBtn) {
+    playBtn.addEventListener('click', () => {
+      alert("Platform Video Tour: Teacher marks attendance -> Admin dashboard updates in real-time -> Monthly PDF report generated!");
+    });
+  }
 }
 
 /* Demo Request Modal Popup & Lead Capture Form */
@@ -233,16 +330,15 @@ function initDemoModal() {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Simulate submission
       form.style.display = 'none';
       if (successState) successState.style.display = 'block';
 
-      // Log event
       console.log('Demo Request Submitted:', {
         name: form.querySelector('#demo-name')?.value,
         institution: form.querySelector('#demo-inst')?.value,
         email: form.querySelector('#demo-email')?.value,
-        phone: form.querySelector('#demo-phone')?.value
+        phone: form.querySelector('#demo-phone')?.value,
+        currentSystem: form.querySelector('#demo-current-system')?.value
       });
     });
   }
@@ -264,7 +360,7 @@ function initScrollAnimations() {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.feature-card, .friction-card, .pricing-card, .roadmap-card').forEach(el => {
+  document.querySelectorAll('.feature-card, .friction-card, .pricing-card, .roadmap-card, .cost-card, .role-card').forEach(el => {
     observer.observe(el);
   });
 }
