@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initDemoModal();
   initVideoDemo();
   initScrollAnimations();
+  initHowItWorksInteractivity();
+  initProductPageInteractivity();
+  initFeaturesPageInteractivity();
 });
 
 /* Sticky Header on Scroll */
@@ -375,3 +378,187 @@ function initScrollAnimations() {
     observer.observe(el);
   });
 }
+
+/* Redesigned How It Works Interactive Handlers */
+function initHowItWorksInteractivity() {
+  // 1. Interactive Student Attendance Roster Toggle
+  const rosterItems = document.querySelectorAll('.roster-item');
+  rosterItems.forEach(item => {
+    const btns = item.querySelectorAll('.toggle-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => {
+          b.classList.remove('active-present', 'active-absent', 'active-late');
+        });
+        if (btn.textContent.trim().includes('Present')) {
+          btn.classList.add('active-present');
+        } else if (btn.textContent.trim().includes('Absent')) {
+          btn.classList.add('active-absent');
+        } else if (btn.textContent.trim().includes('Late')) {
+          btn.classList.add('active-late');
+        }
+      });
+    });
+  });
+
+  // 2. Interactive Onboarding Timeline Stage Switcher
+  const onboardBtns = document.querySelectorAll('.onboard-pill-btn');
+  const onboardTitle = document.getElementById('onboard-stage-title');
+  const onboardDesc = document.getElementById('onboard-stage-desc');
+  const onboardSub = document.getElementById('onboard-stage-sub');
+
+  const onboardData = {
+    '1': {
+      title: '01 SETUP — Institution Configuration',
+      sub: 'Set up your academic structure in under 30 minutes.',
+      desc: 'Configure your institution name, academic year, campus branches, and term schedules effortlessly with pre-built templates.'
+    },
+    '2': {
+      title: '02 CONFIGURE USERS — Role & Access Management',
+      sub: 'Granular permissions for administrators, headmasters & teachers.',
+      desc: 'Assign teachers to their respective departments and sections. Ensure teachers only access their assigned class rosters while admins maintain global visibility.'
+    },
+    '3': {
+      title: '03 ADD CLASSES & STUDENTS — Master Data Import',
+      sub: 'Bulk import student rolls via Excel / CSV.',
+      desc: 'Upload class rosters, section divisions, and student metadata in one click with built-in data validation to eliminate duplicate student records.'
+    },
+    '4': {
+      title: '04 TRAIN TEACHERS — 15-Minute Classroom Onboarding',
+      sub: 'Designed for zero learning curve.',
+      desc: 'Teachers require less than 15 minutes of introduction. Intuitive single-tap interface works seamlessly on smartphones and tablets.'
+    },
+    '5': {
+      title: '05 GO LIVE — Smooth Digital Transition',
+      sub: 'Start marking attendance digitally across your campus.',
+      desc: 'Replace paper registers completely. Instant synchronization provides leadership with immediate morning attendance reports.'
+    }
+  };
+
+  onboardBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      onboardBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const stageKey = btn.getAttribute('data-stage');
+      const data = onboardData[stageKey];
+      if (data && onboardTitle && onboardDesc) {
+        onboardTitle.textContent = data.title;
+        if (onboardSub) onboardSub.textContent = data.sub;
+        onboardDesc.textContent = data.desc;
+      }
+    });
+  });
+}
+
+/* Product Page Dedicated Interactivity Handlers */
+function initProductPageInteractivity() {
+  // 1. Role-Based Product View Switcher
+  const roleBtns = document.querySelectorAll('.role-tab-btn');
+  const roleTitle = document.getElementById('role-view-title');
+  const roleDesc = document.getElementById('role-view-desc');
+  const roleBody = document.getElementById('role-view-body');
+
+  const roleData = {
+    teacher: {
+      title: "TEACHER VIEW — One-Click Mobile Interface",
+      desc: "Mark attendance quickly from a simple, touch-optimized attendance interface.",
+      body: `
+        <div style="background: var(--bg-dark-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border-dark);">
+          <div style="font-weight: 700; color: #FFF; font-size: 15px; margin-bottom: 8px;">Class 10-A • Mathematics</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+            <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: #0F172A; border-radius: 6px; color: #FFF; font-size: 13px;">
+              <span>Ananya Singh (Roll 1001)</span> <span style="color:#34D399; font-weight:700;">✓ PRESENT</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: #0F172A; border-radius: 6px; color: #FFF; font-size: 13px;">
+              <span>Priya Sharma (Roll 1003)</span> <span style="color:#F43F5E; font-weight:700;">✕ ABSENT</span>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    admin: {
+      title: "ADMINISTRATOR VIEW — Centralized Command Console",
+      desc: "Monitor real-time campus attendance, verify daily submissions, and resolve discrepancies.",
+      body: `
+        <div style="background: var(--bg-dark-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border-dark);">
+          <div style="font-weight: 700; color: #FFF; font-size: 15px; margin-bottom: 8px;">Global Institutional Command Center</div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; font-size: 12px; color: #FFF;">
+            <div style="background: #0F172A; padding: 10px; border-radius: 6px;">Total Enrolled: <b>1,248</b></div>
+            <div style="background: #0F172A; padding: 10px; border-radius: 6px;">Classes Submitted: <b style="color:#34D399;">42 / 45</b></div>
+            <div style="background: #0F172A; padding: 10px; border-radius: 6px;">Pending Verification: <b style="color:#F59E0B;">3</b></div>
+          </div>
+        </div>
+      `
+    },
+    principal: {
+      title: "PRINCIPAL VIEW — Academic Attendance & Trend Insights",
+      desc: "Review attendance trends across classes and subjects to identify patterns early.",
+      body: `
+        <div style="background: var(--bg-dark-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border-dark);">
+          <div style="font-weight: 700; color: #FFF; font-size: 15px; margin-bottom: 8px;">Executive Academic Summary</div>
+          <div style="font-size: 13px; color: #CBD5E1; margin-top: 8px; line-height: 1.5;">
+            Monthly Campus Average: <b style="color:#34D399;">94.2%</b> (↑ 1.4% improvement compared to last month). Highest attendance recorded in Class 12 Science (98.1%).
+          </div>
+        </div>
+      `
+    },
+    management: {
+      title: "MANAGEMENT VIEW — Compliance & Institutional Reports",
+      desc: "Access structured reports and attendance insights for board meetings and governance.",
+      body: `
+        <div style="background: var(--bg-dark-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border-dark);">
+          <div style="font-weight: 700; color: #FFF; font-size: 15px; margin-bottom: 8px;">Institutional Compliance Audit</div>
+          <div style="font-size: 13px; color: #CBD5E1; margin-top: 8px;">
+            Export monthly attendance registers for statutory compliance in PDF or Excel format with one click.
+          </div>
+        </div>
+      `
+    }
+  };
+
+  roleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      roleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const roleKey = btn.getAttribute('data-role');
+      const data = roleData[roleKey];
+      if (data) {
+        if (roleTitle) roleTitle.textContent = data.title;
+        if (roleDesc) roleDesc.textContent = data.desc;
+        if (roleBody) roleBody.innerHTML = data.body;
+      }
+    });
+  });
+}
+
+/* Features Page Interactive Category Filter Handlers */
+function initFeaturesPageInteractivity() {
+  const filterBtns = document.querySelectorAll('.feature-cat-btn');
+  const featureCards = document.querySelectorAll('.feature-card-item');
+
+  if (!filterBtns.length || !featureCards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const category = btn.getAttribute('data-category');
+
+      featureCards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.style.display = 'block';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+
+

@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Features | Digital Attendance Record Book | Ebluesys</title>
-  <meta name="description" content="Explore the comprehensive features of Digital Attendance Record Book: one-click attendance, real-time monitoring, attendance analytics, automated reports, and role-based security.">
+  <title>Features & Capabilities | Digital Attendance Record Book | Ebluesys</title>
+  <meta name="description" content="Explore the comprehensive capabilities of Digital Attendance Record Book: one-click attendance, real-time command dashboard, analytics, automated reports, and role-based security.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563EB%22/><text y=%22.9em%22 x=%22.2em%22 font-size=%2270%22 font-weight=%22bold%22 fill=%22white%22>E</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Sticky Header Navigation -->
   <header class="header">
     <div class="container nav-container">
       <a href="index.html" class="logo-group">
@@ -37,86 +43,420 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" style="padding-bottom:40px;">
+  <!-- Hero Section -->
+  <section class="hero" style="padding-bottom: 40px;">
     <div class="container">
-      <div class="hero-content">
-        <span class="badge badge-blue">Core Platform Features</span>
-        <h1 class="hero-title" style="margin-top:16px;">Everything You Need to Manage Attendance.</h1>
-        <p class="hero-subtitle">
-          Built for classroom simplicity and executive clarity across your entire educational institution.
+      <div class="hero-content" style="max-width: 860px; margin: 0 auto; text-align: center;">
+        <span class="badge badge-blue">PLATFORM CAPABILITIES</span>
+        <h1 class="hero-title" style="margin-top: 18px; font-size: 46px; line-height: 1.15;">
+          Purpose-Built Features for Modern Attendance Management.
+        </h1>
+        <p class="hero-subtitle" style="font-size: 18px; margin-top: 16px; color: var(--text-dark-secondary); font-weight: 500;">
+          Designed for classroom speed, administrative control, and leadership clarity.
+        </p>
+        
+        <div style="display: flex; gap: 16px; justify-content: center; margin-top: 28px; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-primary" style="padding: 14px 30px; font-size: 15px;">Book a Live Demo</a>
+          <a href="#features-grid" class="btn btn-secondary" style="padding: 14px 30px; font-size: 15px;">Explore Capabilities</a>
+        </div>
+
+        <!-- Category Filter Pills Bar -->
+        <div class="role-tabs-row" style="margin-top: 40px;">
+          <button class="role-tab-btn feature-cat-btn active" data-category="all">All Capabilities</button>
+          <button class="role-tab-btn feature-cat-btn" data-category="classroom">Classroom Tools</button>
+          <button class="role-tab-btn feature-cat-btn" data-category="admin">Admin Controls</button>
+          <button class="role-tab-btn feature-cat-btn" data-category="analytics">Analytics & Reports</button>
+          <button class="role-tab-btn feature-cat-btn" data-category="security">Security & Access</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 Core Feature Deep-Dive Modules with UI Mockups -->
+  <section id="features-grid" class="section section-subtle">
+    <div class="container">
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+
+        <!-- 01. One-Touch Classroom Marking -->
+        <div class="workflow-big-card feature-card-item" data-category="classroom">
+          <div>
+            <span class="badge badge-emerald">TEACHER FEATURE</span>
+            <h3 class="step-title" style="margin-top: 12px;">01. One-Touch Classroom Marking</h3>
+            <p class="step-desc">
+              Single-touch controls make it effortless for teachers to mark Present, Absent, or Late for student rosters in under 30 seconds from any smartphone or tablet.
+            </p>
+          </div>
+          <div style="background: var(--bg-light); border: 1px solid var(--border-light); padding: 20px; border-radius: var(--radius-md);">
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 12px; color: var(--text-dark-primary);">Class 10-A • Touch Attendance Roster</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: var(--bg-light-subtle); border-radius: 6px;">
+                <span style="font-weight: 600; font-size: 13px;">Ananya Singh</span>
+                <span class="toggle-btn active-present">✓ Present</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: var(--bg-light-subtle); border-radius: 6px;">
+                <span style="font-weight: 600; font-size: 13px;">Priya Sharma</span>
+                <span class="toggle-btn active-absent">✕ Absent</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: var(--bg-light-subtle); border-radius: 6px;">
+                <span style="font-weight: 600; font-size: 13px;">Neha Gupta</span>
+                <span class="toggle-btn active-late">⏱ Late</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02. Real-Time Admin Command Console -->
+        <div class="workflow-big-card feature-card-item" data-category="admin">
+          <div>
+            <span class="badge badge-blue">ADMINISTRATOR TOOL</span>
+            <h3 class="step-title" style="margin-top: 12px;">02. Real-Time Command Console</h3>
+            <p class="step-desc">
+              Eliminate physical register collection. Administrators gain real-time visibility into overall campus attendance rates, section submissions, and absentee numbers.
+            </p>
+          </div>
+          <div style="background: var(--bg-dark-secondary); padding: 20px; border-radius: var(--radius-md); color: #FFF;">
+            <div style="font-weight: 700; font-size: 15px; margin-bottom: 12px;">Institutional Live Metric Feed</div>
+            <div class="dash-stats-row">
+              <div class="dash-stat-box"><div style="font-size:11px; color:#94A3B8;">Enrolled</div><div style="font-weight:800; font-size:16px;">1,248</div></div>
+              <div class="dash-stat-box"><div style="font-size:11px; color:#34D399;">Present</div><div style="font-weight:800; font-size:16px; color:#34D399;">1,032</div></div>
+              <div class="dash-stat-box"><div style="font-size:11px; color:#F43F5E;">Absent</div><div style="font-weight:800; font-size:16px; color:#F43F5E;">216</div></div>
+              <div class="dash-stat-box"><div style="font-size:11px; color:#F59E0B;">Rate</div><div style="font-weight:800; font-size:16px; color:#F59E0B;">82.7%</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03. Timetable & Subject Management -->
+        <div class="workflow-big-card feature-card-item" data-category="classroom">
+          <div>
+            <span class="badge badge-emerald">STRUCTURED WORKFLOW</span>
+            <h3 class="step-title" style="margin-top: 12px;">03. Timetable & Subject Management</h3>
+            <p class="step-desc">
+              Organize attendance by class, section, stream, and specific subject periods to match your exact institutional timetable structure.
+            </p>
+          </div>
+          <div style="background: var(--bg-dark-card); border: 1px solid var(--border-dark); padding: 20px; border-radius: var(--radius-md); color: #FFF;">
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px;">Period-wise Schedule Matrix</div>
+            <div style="font-size: 12px; color: var(--text-light-muted);">Period 1: Mathematics • Period 2: Physics • Period 3: Chemistry</div>
+          </div>
+        </div>
+
+        <!-- 04. Institutional Attendance Analytics -->
+        <div class="workflow-big-card feature-card-item" data-category="analytics">
+          <div>
+            <span class="badge badge-blue">ANALYTICS & INSIGHTS</span>
+            <h3 class="step-title" style="margin-top: 12px;">04. Institutional Attendance Analytics</h3>
+            <p class="step-desc">
+              Turn daily attendance data into visual trend graphs, class-wise distribution metrics, and actionable absenteeism patterns for principal review.
+            </p>
+          </div>
+          <div style="background: var(--bg-dark-secondary); padding: 20px; border-radius: var(--radius-md); color: #FFF;">
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px;">Daily Attendance Trend (%)</div>
+            <div class="dash-bars" style="height: 80px;">
+              <div class="dash-bar-col" style="height: 85%;"></div>
+              <div class="dash-bar-col" style="height: 88%;"></div>
+              <div class="dash-bar-col" style="height: 82%;"></div>
+              <div class="dash-bar-col" style="height: 91%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05. Automated Compliance Reports -->
+        <div class="workflow-big-card feature-card-item" data-category="analytics">
+          <div>
+            <span class="badge badge-emerald">COMPLIANCE & AUDIT</span>
+            <h3 class="step-title" style="margin-top: 12px;">05. Automated Compliance Reports</h3>
+            <p class="step-desc">
+              Generate daily, monthly, class-wise, and student-wise attendance register reports ready for PDF export or Excel CSV calculation in one click.
+            </p>
+          </div>
+          <div style="background: var(--bg-light); border: 1px solid var(--border-light); padding: 20px; border-radius: var(--radius-md);">
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">Monthly Register Report Generator</div>
+            <div style="font-size: 12px; color: var(--text-dark-secondary); margin-bottom: 12px;">Format: PDF Consolidated Register • Class 10-A</div>
+            <button class="btn btn-primary" style="padding: 6px 14px; font-size: 12px;">Generate PDF Report</button>
+          </div>
+        </div>
+
+        <!-- 06. Student Attendance History -->
+        <div class="workflow-big-card feature-card-item" data-category="classroom">
+          <div>
+            <span class="badge badge-blue">STUDENT RECORDS</span>
+            <h3 class="step-title" style="margin-top: 12px;">06. Student Attendance History</h3>
+            <p class="step-desc">
+              Access individual student attendance profiles, absence dates, and cumulative percentage rates for quick parent communication and guidance.
+            </p>
+          </div>
+          <div style="background: var(--bg-light); border: 1px solid var(--border-light); padding: 20px; border-radius: var(--radius-md);">
+            <div style="font-weight: 700; font-size: 15px; color: var(--text-dark-primary);">Rohan Verma (Roll 1002)</div>
+            <div style="font-size: 13px; color: var(--accent-emerald); margin-top: 4px; font-weight: 600;">Overall Attendance: 82.7%</div>
+          </div>
+        </div>
+
+        <!-- 07. Granular Role-Based Access Control -->
+        <div class="workflow-big-card feature-card-item" data-category="security">
+          <div>
+            <span class="badge badge-emerald">SECURITY & GOVERNANCE</span>
+            <h3 class="step-title" style="margin-top: 12px;">07. Granular Role-Based Access</h3>
+            <p class="step-desc">
+              Assign exact permission boundaries to teachers, headmasters, administrators, and leadership to maintain strict data privacy and institutional control.
+            </p>
+          </div>
+          <div style="background: var(--bg-dark-card); padding: 20px; border-radius: var(--radius-md); color: #FFF;">
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">Permission Scopes</div>
+            <div style="font-size: 12px; color: var(--text-light-muted);">Teacher → Assigned Classes Only | Admin → Campus-Wide View</div>
+          </div>
+        </div>
+
+        <!-- 08. Responsive Cross-Platform Access -->
+        <div class="workflow-big-card feature-card-item" data-category="security">
+          <div>
+            <span class="badge badge-blue">CROSS-PLATFORM</span>
+            <h3 class="step-title" style="margin-top: 12px;">08. Cross-Platform Accessibility</h3>
+            <p class="step-desc">
+              Important attendance functions available through a modern, responsive web application optimized for smartphones, tablets, laptops, and smartboards.
+            </p>
+          </div>
+          <div style="background: var(--bg-dark-secondary); padding: 20px; border-radius: var(--radius-md); color: #FFF; text-align: center;">
+            <div style="font-weight: 700; font-size: 14px;">Mobile • Tablet • Laptop • Smartboard</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- High-Conversion Pain-to-Solution ROI Engine -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align: center; max-width: 840px; margin: 0 auto 48px;">
+        <span class="badge badge-emerald">HIGH-IMPACT ROI ENGINE</span>
+        <h2 style="font-family: var(--font-heading); font-size: 38px; font-weight: 800; margin-top: 12px;">
+          Why Educational Institutions Choose Ebluesys.
+        </h2>
+        <p style="font-size: 16px; color: var(--text-dark-secondary); margin-top: 10px;">
+          Eliminate daily attendance nightmares and turn manual paperwork into structured digital leadership insights.
         </p>
       </div>
-    </div>
-  </section>
 
-  <!-- 8 Core Feature Cards -->
-  <section class="section section-subtle">
-    <div class="container">
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>01. One-Click Attendance</h3>
-          <p>Mark attendance quickly with a simple, teacher-friendly workflow optimized for smartphones and tablets.</p>
+      <div class="pain-solution-grid">
+
+        <!-- Card 1 -->
+        <div class="pain-solution-card">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+              <span class="pain-tag">✕ PROBLEM</span>
+              <span class="solution-tag">✓ EBLUESYS SOLUTION</span>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--text-dark-primary);">
+              Wasted Teaching Time
+            </h3>
+            <p style="font-size: 14px; color: #E11D48; margin-bottom: 8px; font-weight: 500;">
+              Calling out 40–60 names manually every period wastes 10–15 minutes of crucial instruction time daily.
+            </p>
+            <p style="font-size: 14px; color: var(--text-dark-secondary); line-height: 1.6;">
+              Single-touch mobile roster controls allow teachers to take attendance in under 30 seconds without disrupting the lecture.
+            </p>
+          </div>
+          <div class="roi-metric-chip">
+            ⚡ Reclaims 180+ Teaching Hours / Year / Teacher
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">👁️</div>
-          <h3>02. Real-Time Monitoring</h3>
-          <p>See attendance information instantly without waiting for physical registers to reach the office.</p>
+        <!-- Card 2 -->
+        <div class="pain-solution-card">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+              <span class="pain-tag">✕ PROBLEM</span>
+              <span class="solution-tag">✓ EBLUESYS SOLUTION</span>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--text-dark-primary);">
+              Delayed Executive Visibility
+            </h3>
+            <p style="font-size: 14px; color: #E11D48; margin-bottom: 8px; font-weight: 500;">
+              Leadership receives yesterday's paper attendance tomorrow after hours of manual office compilation.
+            </p>
+            <p style="font-size: 14px; color: var(--text-dark-secondary); line-height: 1.6;">
+              Real-time institutional command console updates live by 09:30 AM across all campus branches.
+            </p>
+          </div>
+          <div class="roi-metric-chip">
+            👁️ 100% Morning Leadership Visibility
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">🏫</div>
-          <h3>03. Class & Subject Management</h3>
-          <p>Keep attendance structured cleanly by class, section, stream, and specific subject periods.</p>
+        <!-- Card 3 -->
+        <div class="pain-solution-card">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+              <span class="pain-tag">✕ PROBLEM</span>
+              <span class="solution-tag">✓ EBLUESYS SOLUTION</span>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--text-dark-primary);">
+              Audit Discrepancies & Math Errors
+            </h3>
+            <p style="font-size: 14px; color: #E11D48; margin-bottom: 8px; font-weight: 500;">
+              Inaccurate register math, missing pages, and stressful board audit preparations at month-end.
+            </p>
+            <p style="font-size: 14px; color: var(--text-dark-secondary); line-height: 1.6;">
+              Automated 1-click PDF & Excel monthly register reports generated error-free for statutory compliance.
+            </p>
+          </div>
+          <div class="roi-metric-chip">
+            📑 100% Audit Readiness & Zero Math Errors
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">📈</div>
-          <h3>04. Attendance Analytics</h3>
-          <p>Turn attendance records into institutional trends, month-over-month comparisons, and actionable insights.</p>
+        <!-- Card 4 -->
+        <div class="pain-solution-card">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+              <span class="pain-tag">✕ PROBLEM</span>
+              <span class="solution-tag">✓ EBLUESYS SOLUTION</span>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--text-dark-primary);">
+              Unnoticed Student Absenteeism
+            </h3>
+            <p style="font-size: 14px; color: #E11D48; margin-bottom: 8px; font-weight: 500;">
+              Chronic absentees go unnoticed until exam season, damaging academic pass rates and student retention.
+            </p>
+            <p style="font-size: 14px; color: var(--text-dark-secondary); line-height: 1.6;">
+              Automated daily absentee tracking & instant parent notification workflows for early intervention.
+            </p>
+          </div>
+          <div class="roi-metric-chip">
+            🎯 Early Absentee Intervention & Parent Trust
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">📑</div>
-          <h3>05. Detailed Reports</h3>
-          <p>Generate daily, monthly, student-wise, class-wise, and absentee reports ready for printing or export.</p>
+        <!-- Card 5 -->
+        <div class="pain-solution-card">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+              <span class="pain-tag">✕ PROBLEM</span>
+              <span class="solution-tag">✓ EBLUESYS SOLUTION</span>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--text-dark-primary);">
+              Heavy ERP Teacher Resistance
+            </h3>
+            <p style="font-size: 14px; color: #E11D48; margin-bottom: 8px; font-weight: 500;">
+              Clunky 20-click legacy ERP systems cause heavy teacher pushback and low daily compliance.
+            </p>
+            <p style="font-size: 14px; color: var(--text-dark-secondary); line-height: 1.6;">
+              Intuitive 15-minute zero-training touch interface designed specifically for smartphone speed.
+            </p>
+          </div>
+          <div class="roi-metric-chip">
+            🚀 100% Teacher Adoption on Day 1
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">🔔</div>
-          <h3>06. Smart Notifications</h3>
-          <p>Keep relevant stakeholders informed about attendance according to the institution's configured workflow.</p>
+        <!-- Card 6 -->
+        <div class="pain-solution-card">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+              <span class="pain-tag">✕ PROBLEM</span>
+              <span class="solution-tag">✓ EBLUESYS SOLUTION</span>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--text-dark-primary);">
+              Recurring Paper & Storage Costs
+            </h3>
+            <p style="font-size: 14px; color: #E11D48; margin-bottom: 8px; font-weight: 500;">
+              Buying, printing, and physically storing hundreds of register booklets in physical cabinets every year.
+            </p>
+            <p style="font-size: 14px; color: var(--text-dark-secondary); line-height: 1.6;">
+              100% digital cloud-secured record book with multi-year search and zero physical archive overhead.
+            </p>
+          </div>
+          <div class="roi-metric-chip">
+            🌿 $0 Recurring Paper Expenses & Zero Storage Space
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">🔐</div>
-          <h3>07. Secure Role-Based Access</h3>
-          <p>Give teachers, administrators, coordinators, and management the exact level of access they require.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>08. Mobile Access</h3>
-          <p>Important attendance functions available through a modern, responsive touch-optimized mobile experience.</p>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section section-dark" style="text-align:center;">
-    <div class="container">
-      <h2 style="font-family:var(--font-heading); font-size:36px; font-weight:800;">Want a live walk-through of these features?</h2>
-      <br>
-      <a href="contact.html" class="btn btn-primary" style="padding:14px 32px;">Schedule Live Demo</a>
+  <!-- Dark Navy Security & USP Banner -->
+  <section class="section section-dark">
+    <div class="container" style="text-align: center;">
+      <span class="badge badge-emerald">ENTERPRISE GOVERNANCE</span>
+      <h2 style="font-family: var(--font-heading); font-size: 40px; font-weight: 800; margin-top: 16px;">
+        Built with Enterprise Control & Security.
+      </h2>
+      <p style="font-size: 18px; color: var(--text-light-secondary); margin-top: 12px; max-width: 720px; margin-left: auto; margin-right: auto;">
+        Your institution maintains 100% data ownership with strict role permissions and isolated tenant boundaries.
+      </p>
+
+      <div class="usp-big-words" style="margin-top: 36px;">
+        <div class="usp-word" style="font-size: 20px;">ROLE ENCRYPTION</div>
+        <div class="usp-word" style="font-size: 20px;">ZERO DATA SELLING</div>
+        <div class="usp-word" style="font-size: 20px;">100% OWNERSHIP</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="section section-dark" style="text-align: center; border-top: 1px solid var(--border-dark);">
+    <div class="container" style="max-width: 760px;">
+      <h2 style="font-family: var(--font-heading); font-size: 42px; font-weight: 800; letter-spacing: -0.5px;">
+        Ready to experience these features in action?
+      </h2>
+      <p style="font-size: 18px; color: var(--text-light-secondary); margin-top: 16px;">
+        Schedule a personalized demo of Digital Attendance Record Book for your school or college.
+      </p>
+
+      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px; flex-wrap: wrap;">
+        <a href="contact.html" class="btn btn-primary" style="padding: 16px 36px; font-size: 16px;">Book a Live Demo</a>
+        <a href="contact.html" class="btn btn-secondary" style="padding: 16px 36px; font-size: 16px;">Talk to Our Team</a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo-group">
+            <div class="logo-icon">E</div>
+            <div class="logo-text">
+              <span class="brand-name" style="color:#FFF;">Ebluesys</span>
+              <span class="brand-tag" style="color:var(--text-light-muted);">Attendance Record Book</span>
+            </div>
+          </a>
+          <p>Ebluesys Technologies Private Limited</p>
+          <p style="margin-top: 8px; font-size: 13px;">Simplifying attendance management for schools, colleges, and educational institutions.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="product.html">Product</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="security.html">Security</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="footer-links">
+            <li>📞 +91 7501989603</li>
+            <li>✉️ connect@ebluesys.com</li>
+            <li>🌐 www.ebluesys.com</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="footer-bottom">
         <span>© 2026 Ebluesys Technologies Private Limited. All rights reserved.</span>
         <a href="index.html">Back to Home</a>
