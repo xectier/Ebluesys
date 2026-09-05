@@ -4,66 +4,58 @@
    ========================================================================== */
 
 :root {
-  /* Brand Color Palette */
-  --bg-dark: #070A13;
-  --bg-dark-secondary: #0F172A;
-  --bg-dark-card: #1E293B;
-  --bg-light: #FFFFFF;
-  --bg-light-subtle: #F8FAFC;
-  --bg-light-alt: #F1F5F9;
+  /* 5 Core Deliberate Design Tokens */
+  --ink-dark: #0A0E14;        /* Near-black ink for primary text and dark sections */
+  --canvas-light: #FAFAF9;    /* Warm-white default background canvas */
+  --accent-blue: #2E5EFF;     /* Confident single blue accent for live data & primary CTAs */
+  --accent-blue-hover: #1E4BD8;
+  --text-muted: #8A9099;      /* Muted slate for captions & secondary text */
   
-  --primary-blue: #2563EB;
-  --primary-blue-hover: #1D4ED8;
-  --primary-blue-light: #EFF6FF;
-  --primary-blue-glow: rgba(37, 99, 235, 0.2);
+  /* Semantic Data Display Colors (ONLY used inside software UI data displays) */
+  --data-present: #16A34A;
+  --data-absent: #DC2626;
 
-  --accent-emerald: #10B981;
-  --accent-emerald-hover: #059669;
-  --accent-emerald-light: #ECFDF5;
-  --accent-emerald-glow: rgba(16, 185, 129, 0.2);
+  /* Legacy mappings mapped cleanly to core tokens */
+  --bg-dark: #0A0E14;
+  --bg-dark-secondary: #0A0E14;
+  --bg-dark-card: #131A24;
+  --bg-light: #FAFAF9;
+  --bg-light-subtle: #F4F4F3;
+  --bg-light-alt: #EBEBEA;
+  
+  --primary-blue: #2E5EFF;
+  --primary-blue-hover: #1E4BD8;
+  --primary-blue-light: rgba(46, 94, 255, 0.08);
 
-  --accent-purple: #8B5CF6;
-  --accent-amber: #F59E0B;
-  --accent-rose: #F43F5E;
+  --accent-emerald: #16A34A;
+  --accent-emerald-light: rgba(22, 163, 74, 0.08);
+  --accent-emerald-hover: #15803D;
 
-  /* Typography Colors */
-  --text-dark-primary: #0F172A;
-  --text-dark-secondary: #475569;
-  --text-dark-muted: #94A3B8;
+  --text-dark-primary: #0A0E14;
+  --text-dark-secondary: #4A505A;
+  --text-dark-muted: #8A9099;
 
-  --text-light-primary: #F8FAFC;
-  --text-light-secondary: #CBD5E1;
-  --text-light-muted: #64748B;
+  --text-light-primary: #FAFAF9;
+  --text-light-secondary: #C2C6CC;
+  --text-light-muted: #8A9099;
 
-  /* Borders & Dividers */
-  --border-light: #E2E8F0;
-  --border-light-hover: #CBD5E1;
-  --border-dark: #334155;
-  --border-dark-hover: #475569;
+  --border-light: rgba(138, 144, 153, 0.2);
+  --border-dark: rgba(255, 255, 255, 0.12);
 
-  /* Fonts */
+  /* Typography */
   --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 8px 16px -4px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 20px 40px -12px rgba(15, 23, 42, 0.1);
-  --shadow-xl: 0 30px 60px -15px rgba(15, 23, 42, 0.15);
-  --shadow-glow: 0 0 50px rgba(37, 99, 235, 0.15);
-
   /* Layout */
   --max-width: 1240px;
-  --nav-height: 80px;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 24px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
   --radius-pill: 9999px;
 
-  /* Transitions */
-  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Subtle Transitions */
+  --transition-fast: 0.18s ease-out;
+  --transition-normal: 0.3s ease-out;
 }
 
 /* Reset & Base Styles */
@@ -575,6 +567,16 @@ img, svg {
   flex-direction: column;
   gap: 20px;
   overflow-y: auto;
+}
+
+.hero-panel {
+  display: none !important;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-panel.active {
+  display: flex !important;
 }
 
 .topbar-ui {

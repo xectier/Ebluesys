@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Security & Data Control | Digital Attendance Record Book | Ebluesys</title>
-  <meta name="description" content="Learn about role-based access control, centralized data record management, and data governance in Digital Attendance Record Book.">
+  <title>Security & Data Governance | Digital Attendance Record Book | Ebluesys</title>
+  <meta name="description" content="Role-based access control and centralized attendance management designed for educational institutions. Controlled access for every role.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563EB%22/><text y=%22.9em%22 x=%22.2em%22 font-size=%2270%22 font-weight=%22bold%22 fill=%22white%22>E</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
 
@@ -24,10 +25,11 @@
       <nav>
         <ul class="nav-menu">
           <li><a href="product.html" class="nav-link">Product</a></li>
+          <li><a href="layouts.html" class="nav-link">Layouts</a></li>
           <li><a href="features.html" class="nav-link">Features</a></li>
           <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
           <li><a href="solutions.html" class="nav-link">Solutions</a></li>
-          <li><a href="security.html" class="nav-link" style="color:var(--primary-blue); font-weight:700;">Security</a></li>
+          <li><a href="security.html" class="nav-link nav-link-active">Security</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
         </ul>
       </nav>
@@ -38,46 +40,385 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero" style="padding-bottom:40px;">
+  <section class="hero pg-hero" style="padding-bottom:80px;">
     <div class="container">
       <div class="hero-content">
         <span class="badge badge-dark">Data Governance</span>
-        <h1 class="hero-title" style="margin-top:16px;">Your Attendance Data Deserves Control.</h1>
-        <p class="hero-subtitle">
-          Granular role-based permissions and centralized data management built for school security.
-        </p>
+        <h1 class="hero-title" style="margin-top:16px;">Your Attendance Data<br>Deserves Control.</h1>
+        <p class="hero-subtitle">Role-based access and centralized attendance management designed for educational institutions.</p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn btn-primary" style="padding:14px 32px;">Book a Live Demo</a>
+          <a href="#role-access" class="btn btn-secondary" style="padding:14px 32px;">Explore Access Controls</a>
+        </div>
+      </div>
+      <!-- Hero Visual: Role → Data Diagram -->
+      <div class="sec-hero-visual" aria-hidden="true">
+        <div class="sec-role-diagram">
+          <div class="sec-role-node sec-role-teacher">
+            <div class="sec-role-icon">👩‍🏫</div>
+            <div class="sec-role-label">Teacher</div>
+            <div class="sec-role-access">Class Attendance</div>
+          </div>
+          <div class="sec-role-node sec-role-admin">
+            <div class="sec-role-icon">🏢</div>
+            <div class="sec-role-label">Administrator</div>
+            <div class="sec-role-access">Reports &amp; Records</div>
+          </div>
+          <div class="sec-data-center">
+            <div class="sec-data-label">Attendance Data</div>
+            <div class="sec-data-sub">Centralized &amp; Controlled</div>
+          </div>
+          <div class="sec-role-node sec-role-principal">
+            <div class="sec-role-icon">📊</div>
+            <div class="sec-role-label">Principal</div>
+            <div class="sec-role-access">Overview &amp; Analytics</div>
+          </div>
+          <div class="sec-role-node sec-role-mgmt">
+            <div class="sec-role-icon">📈</div>
+            <div class="sec-role-label">Management</div>
+            <div class="sec-role-access">Institutional Insights</div>
+          </div>
+        </div>
+        <p class="sec-diagram-caption">Different roles. Different access.</p>
       </div>
     </div>
   </section>
 
-  <!-- Security Cards -->
+  <!-- Role-Based Access Control -->
+  <section class="section" id="role-access" style="padding-top:0;">
+    <div class="container">
+      <div style="text-align:center; max-width:640px; margin:0 auto 48px;" class="sec-reveal">
+        <span class="badge badge-blue">Role-Based Access</span>
+        <h2 style="font-family:var(--font-heading); font-size:clamp(28px,4vw,42px); font-weight:800; margin-top:16px; letter-spacing:-0.5px;">Everyone doesn't need<br>access to everything.</h2>
+        <p style="color:var(--text-dark-secondary); font-size:17px; margin-top:12px;">Role-based access helps institutions control what different users can view or manage.</p>
+      </div>
+
+      <!-- Interactive Role Tabs -->
+      <div class="sec-role-tabs-wrap" class="sec-reveal">
+        <div class="role-tabs-row sec-role-tabs-row">
+          <button class="role-tab-btn active" data-role="teacher" id="sec-tab-teacher">Teacher</button>
+          <button class="role-tab-btn" data-role="administrator" id="sec-tab-administrator">Administrator</button>
+          <button class="role-tab-btn" data-role="principal" id="sec-tab-principal">Principal</button>
+          <button class="role-tab-btn" data-role="management" id="sec-tab-management">Management</button>
+        </div>
+
+        <div class="sec-role-panel-wrap">
+          <!-- Teacher Panel -->
+          <div class="sec-role-panel active" id="rp-teacher">
+            <div class="sec-role-perm-left">
+              <div class="sec-role-perm-title">Teacher Access</div>
+              <p class="sec-role-perm-desc">Teachers access only the classes and subjects assigned to them. They can mark attendance and view relevant student records for their classes.</p>
+            </div>
+            <div class="sec-role-perm-right">
+              <div class="sec-perm-list">
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Mark Attendance</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>View Assigned Classes</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>View Class Attendance Records</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>View Student Attendance History</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>Institution-Wide Reports</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>User Management</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>System Configuration</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Administrator Panel -->
+          <div class="sec-role-panel" id="rp-administrator">
+            <div class="sec-role-perm-left">
+              <div class="sec-role-perm-title">Administrator Access</div>
+              <p class="sec-role-perm-desc">Administrators have broader visibility across the institution, managing attendance data, reports, and user access.</p>
+            </div>
+            <div class="sec-role-perm-right">
+              <div class="sec-perm-list">
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Attendance Monitoring</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Reports &amp; Exports</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Student Records</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>User Management</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Class &amp; Subject Management</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>System Configuration</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>Institutional Analytics</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principal Panel -->
+          <div class="sec-role-panel" id="rp-principal">
+            <div class="sec-role-perm-left">
+              <div class="sec-role-perm-title">Principal Access</div>
+              <p class="sec-role-perm-desc">Principals get a high-level view of attendance across the institution — trends, overviews, and reports — without managing day-to-day entries.</p>
+            </div>
+            <div class="sec-role-perm-right">
+              <div class="sec-perm-list">
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Attendance Overview</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Attendance Trends</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Reports Access</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Analytics Dashboard</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>Mark Attendance</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>User Management</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>System Configuration</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Management Panel -->
+          <div class="sec-role-panel" id="rp-management">
+            <div class="sec-role-perm-left">
+              <div class="sec-role-perm-title">Management Access</div>
+              <p class="sec-role-perm-desc">Management sees institutional-level insights and authorized reports — giving them visibility without exposing day-to-day operational data.</p>
+            </div>
+            <div class="sec-role-perm-right">
+              <div class="sec-perm-list">
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Institutional Insights</div>
+                <div class="sec-perm-item sec-perm-on"><span class="sec-perm-dot"></span>Authorized Reports</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>Student-Level Records</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>Mark Attendance</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>User Management</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>System Configuration</div>
+                <div class="sec-perm-item sec-perm-off"><span class="sec-perm-dot sec-perm-dot-off"></span>Class-Level Data</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Centralized Records -->
+  <section class="section section-subtle">
+    <div class="container">
+      <div class="sol-split" style="align-items:center;">
+        <div class="sol-split-text sec-reveal">
+          <span class="badge badge-blue" style="margin-bottom:20px;">Centralized Records</span>
+          <h2 class="sol-split-heading">One place for attendance records.</h2>
+          <p class="sol-split-desc">Move away from scattered physical registers and fragmented records toward centralized digital attendance management.</p>
+          <div class="sec-transition-flow">
+            <div class="sec-trans-step sec-trans-old">
+              <div class="sec-trans-icon">📋</div>
+              <div class="sec-trans-label">Paper Register</div>
+            </div>
+            <div class="sec-trans-arrow">→</div>
+            <div class="sec-trans-step">
+              <div class="sec-trans-icon">💻</div>
+              <div class="sec-trans-label">Digital Record</div>
+            </div>
+            <div class="sec-trans-arrow">→</div>
+            <div class="sec-trans-step sec-trans-active">
+              <div class="sec-trans-icon">🏛️</div>
+              <div class="sec-trans-label">Centralized System</div>
+            </div>
+            <div class="sec-trans-arrow">→</div>
+            <div class="sec-trans-step sec-trans-highlight">
+              <div class="sec-trans-icon">🔑</div>
+              <div class="sec-trans-label">Authorized Access</div>
+            </div>
+          </div>
+        </div>
+        <div class="sol-split-visual">
+          <!-- Record comparison UI -->
+          <div class="sec-record-compare">
+            <div class="sec-record-col sec-record-old">
+              <div class="sec-record-label-tag">TRADITIONAL</div>
+              <ul class="sec-record-list">
+                <li class="sec-record-bad">📋 Paper register</li>
+                <li class="sec-record-bad">✍️ Manual handling</li>
+                <li class="sec-record-bad">📁 Scattered records</li>
+                <li class="sec-record-bad">🔍 Difficult retrieval</li>
+              </ul>
+            </div>
+            <div class="sec-record-col sec-record-new">
+              <div class="sec-record-label-tag" style="background:var(--accent-emerald-light); color:var(--accent-emerald-hover);">DIGITAL</div>
+              <ul class="sec-record-list">
+                <li class="sec-record-good">✓ Centralized attendance</li>
+                <li class="sec-record-good">✓ Structured information</li>
+                <li class="sec-record-good">✓ Controlled access</li>
+                <li class="sec-record-good">✓ Easy retrieval</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Flow -->
   <section class="section section-dark">
     <div class="container">
-      <div class="feature-grid">
-        <div class="feature-card" style="background:var(--bg-dark-card); color:#FFF; border-color:var(--border-dark);">
-          <h3>Role-Based Access Control</h3>
-          <p style="color:var(--text-light-secondary);">Ensures teachers only view and edit their designated class sections.</p>
+      <div style="text-align:center; max-width:640px; margin:0 auto 56px;" class="sec-reveal">
+        <span class="badge badge-dark">Data Flow</span>
+        <h2 style="font-family:var(--font-heading); font-size:clamp(28px,4vw,42px); font-weight:800; color:#FFF; margin-top:16px; letter-spacing:-0.5px;">See how attendance data moves.</h2>
+        <p style="color:#94A3B8; font-size:17px; margin-top:12px; line-height:1.7;">From attendance entry to authorized reporting, information follows a structured workflow.</p>
+      </div>
+      <div class="sec-dataflow">
+        <div class="sec-dataflow-step">
+          <div class="sec-dataflow-num">01</div>
+          <div class="sec-dataflow-label">Teacher</div>
+          <div class="sec-dataflow-sub">Marks attendance</div>
         </div>
-
-        <div class="feature-card" style="background:var(--bg-dark-card); color:#FFF; border-color:var(--border-dark);">
-          <h3>Centralized Record Storage</h3>
-          <p style="color:var(--text-light-secondary);">Eliminates physical register loss, misplaced record books, and illegible handwriting.</p>
+        <div class="sec-dataflow-line"><div class="sec-dataflow-pulse"></div></div>
+        <div class="sec-dataflow-step">
+          <div class="sec-dataflow-num">02</div>
+          <div class="sec-dataflow-label">Attendance Entry</div>
+          <div class="sec-dataflow-sub">Logged digitally</div>
         </div>
+        <div class="sec-dataflow-line"><div class="sec-dataflow-pulse"></div></div>
+        <div class="sec-dataflow-step">
+          <div class="sec-dataflow-num">03</div>
+          <div class="sec-dataflow-label">Central Record</div>
+          <div class="sec-dataflow-sub">Stored centrally</div>
+        </div>
+        <div class="sec-dataflow-line"><div class="sec-dataflow-pulse"></div></div>
+        <div class="sec-dataflow-step">
+          <div class="sec-dataflow-num">04</div>
+          <div class="sec-dataflow-label">Dashboard</div>
+          <div class="sec-dataflow-sub">Admin visibility</div>
+        </div>
+        <div class="sec-dataflow-line"><div class="sec-dataflow-pulse"></div></div>
+        <div class="sec-dataflow-step sec-dataflow-step-last">
+          <div class="sec-dataflow-num">05</div>
+          <div class="sec-dataflow-label">Reports</div>
+          <div class="sec-dataflow-sub">Authorized access</div>
+        </div>
+      </div>
+      <p style="text-align:center; color:#64748B; font-size:13px; margin-top:32px;">This is a conceptual product workflow — not a claim about backend infrastructure.</p>
+    </div>
+  </section>
 
-        <div class="feature-card" style="background:var(--bg-dark-card); color:#FFF; border-color:var(--border-dark);">
-          <h3>Controlled Visibility</h3>
-          <p style="color:var(--text-light-secondary);">Configurable administrative rights keep student data private and secure.</p>
+  <!-- Data Governance Principles -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; max-width:640px; margin:0 auto 56px;" class="sec-reveal">
+        <span class="badge badge-blue">Data Governance</span>
+        <h2 style="font-family:var(--font-heading); font-size:clamp(28px,4vw,42px); font-weight:800; margin-top:16px; letter-spacing:-0.5px;">Attendance data is institutional data.</h2>
+        <p style="color:var(--text-dark-secondary); font-size:17px; margin-top:12px; line-height:1.7;">Student attendance records support everyday academic administration. Managing that information responsibly matters.</p>
+      </div>
+      <div class="sec-gov-grid">
+        <div class="sec-gov-card">
+          <div class="sec-gov-num">01</div>
+          <h3 class="sec-gov-title">Access</h3>
+          <p class="sec-gov-desc">Who can see it? Role-based permissions ensure only authorized users view relevant attendance information.</p>
+        </div>
+        <div class="sec-gov-card">
+          <div class="sec-gov-num">02</div>
+          <h3 class="sec-gov-title">Control</h3>
+          <p class="sec-gov-desc">Who can manage it? Administrators control the platform — users, classes, subjects, and attendance scope.</p>
+        </div>
+        <div class="sec-gov-card">
+          <div class="sec-gov-num">03</div>
+          <h3 class="sec-gov-title">Visibility</h3>
+          <p class="sec-gov-desc">Who can monitor it? Principals and management see institution-level summaries without operational detail.</p>
+        </div>
+        <div class="sec-gov-card">
+          <div class="sec-gov-num">04</div>
+          <h3 class="sec-gov-title">Accountability</h3>
+          <p class="sec-gov-desc">How is attendance managed across roles? Structured workflows ensure data follows defined institutional paths.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" style="text-align:center;">
+  <!-- Dark Statement -->
+  <section class="section section-dark" style="text-align:center; padding:120px 0;">
     <div class="container">
-      <h2 style="font-family:var(--font-heading); font-size:36px; font-weight:800;">Want to review data governance policies?</h2>
-      <br>
-      <a href="contact.html" class="btn btn-primary" style="padding:14px 32px;">Contact Security Team</a>
+      <p style="font-size:13px; color:#64748B; letter-spacing:2px; text-transform:uppercase; margin-bottom:32px;">Data Governance Principle</p>
+      <h2 style="font-family:var(--font-heading); font-size:clamp(36px,6vw,64px); font-weight:800; letter-spacing:-1.5px; color:#FFF; line-height:1.1; max-width:800px; margin:0 auto 24px;">The right data.<br>For the right people.<br>At the right time.</h2>
+      <p style="color:#64748B; font-size:18px; max-width:480px; margin:0 auto; line-height:1.7;">Designed around role-based access and structured attendance management.</p>
+    </div>
+  </section>
+
+  <!-- Security Principles -->
+  <section class="section section-subtle">
+    <div class="container">
+      <div style="text-align:center; max-width:640px; margin:0 auto 56px;" class="sec-reveal">
+        <h2 style="font-family:var(--font-heading); font-size:clamp(28px,4vw,38px); font-weight:800; letter-spacing:-0.5px;">Built around four principles.</h2>
+      </div>
+      <div class="sec-principles-grid">
+        <div class="sec-principle-card">
+          <div class="sec-principle-num">01</div>
+          <h3 class="sec-principle-title">Role-Based Access</h3>
+          <p class="sec-principle-desc">Different users have different access based on their institutional role.</p>
+        </div>
+        <div class="sec-principle-card">
+          <div class="sec-principle-num">02</div>
+          <h3 class="sec-principle-title">Centralized Records</h3>
+          <p class="sec-principle-desc">Attendance information is managed in a structured digital environment.</p>
+        </div>
+        <div class="sec-principle-card">
+          <div class="sec-principle-num">03</div>
+          <h3 class="sec-principle-title">Controlled Visibility</h3>
+          <p class="sec-principle-desc">Information is shown according to authorized access — no more, no less.</p>
+        </div>
+        <div class="sec-principle-card">
+          <div class="sec-principle-num">04</div>
+          <h3 class="sec-principle-title">Institutional Control</h3>
+          <p class="sec-principle-desc">Attendance follows defined institutional workflows managed by administrators.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; max-width:640px; margin:0 auto 48px;" class="sec-reveal">
+        <h2 style="font-family:var(--font-heading); font-size:clamp(28px,4vw,38px); font-weight:800; letter-spacing:-0.5px;">Common questions.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item" id="faq-1">
+          <button class="faq-question" onclick="toggleFaq('faq-1')">
+            How is access managed?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">Access is managed through role-based assignments. Each user is assigned a role (Teacher, Administrator, Principal, or Management), and the platform restricts what they can see and do based on that role.</div>
+        </div>
+        <div class="faq-item" id="faq-2">
+          <button class="faq-question" onclick="toggleFaq('faq-2')">
+            Can different users have different permissions?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">Yes. Role-based access means teachers see only their assigned classes, while administrators have broader access, and management sees institution-level reports. Each role has a distinct access scope.</div>
+        </div>
+        <div class="faq-item" id="faq-3">
+          <button class="faq-question" onclick="toggleFaq('faq-3')">
+            Can teachers access only their assigned classes?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">Yes. Teachers are scoped to the classes and subjects assigned to them. They can mark attendance and view records only for their designated classes.</div>
+        </div>
+        <div class="faq-item" id="faq-4">
+          <button class="faq-question" onclick="toggleFaq('faq-4')">
+            Can administrators monitor attendance?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">Yes. Administrators have access to attendance monitoring, reports, and student records across the institution. They can also manage users and classes.</div>
+        </div>
+        <div class="faq-item" id="faq-5">
+          <button class="faq-question" onclick="toggleFaq('faq-5')">
+            Can management access attendance reports?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">Yes. Management can access institutional-level insights and authorized reports, giving them visibility into attendance trends without accessing operational data.</div>
+        </div>
+        <div class="faq-item" id="faq-6">
+          <button class="faq-question" onclick="toggleFaq('faq-6')">
+            Can the platform work alongside an existing ERP?
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">This depends on your existing setup. Please contact our team to discuss how the Attendance Record Book can fit within your institution's current systems.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section" style="text-align:center; background:radial-gradient(80% 60% at 50% 0%, rgba(46,94,255,0.06) 0%, transparent 100%); padding:100px 0;">
+    <div class="container">
+      <span class="badge badge-blue" style="margin-bottom:20px;">See it in action</span>
+      <h2 style="font-family:var(--font-heading); font-size:clamp(32px,5vw,48px); font-weight:800; letter-spacing:-1px; max-width:640px; margin:0 auto 16px;">See how access works in practice.</h2>
+      <p style="color:var(--text-dark-secondary); font-size:18px; margin:0 auto 36px; max-width:520px; line-height:1.7;">Explore the platform and see how attendance data is managed across different roles.</p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn btn-primary" style="padding:14px 32px;">Book a Live Demo</a>
+        <a href="contact.html" class="btn btn-secondary" style="padding:14px 32px;">Talk to Our Team</a>
+      </div>
     </div>
   </section>
 
@@ -92,5 +433,40 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script>
+    // Security Role Tabs
+    (function() {
+      const roleBtns = document.querySelectorAll('.sec-role-tabs-row .role-tab-btn');
+      const rolePanels = document.querySelectorAll('.sec-role-panel');
+      roleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const role = btn.dataset.role;
+          roleBtns.forEach(b => b.classList.remove('active'));
+          rolePanels.forEach(p => p.classList.remove('active'));
+          btn.classList.add('active');
+          const panel = document.getElementById('rp-' + role);
+          if (panel) panel.classList.add('active');
+        });
+      });
+    })();
+
+    // FAQ Toggle
+    function toggleFaq(id) {
+      const item = document.getElementById(id);
+      const isOpen = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isOpen) item.classList.add('active');
+    }
+
+    // Scroll Reveal
+    (function() {
+      if (!window.IntersectionObserver) return;
+      const targets = document.querySelectorAll('.sec-reveal');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+      }, { threshold: 0.15 });
+      targets.forEach(t => obs.observe(t));
+    })();
+  </script>
 </body>
 </html>

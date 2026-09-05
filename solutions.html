@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Institutional Solutions | Digital Attendance Record Book | Ebluesys</title>
-  <meta name="description" content="Tailored attendance management solutions for K-12 schools, colleges, universities, coaching centers, and educational group management.">
+  <meta name="description" content="Attendance management solutions tailored for K-12 schools, colleges, universities, and coaching institutes. One platform, different institutions.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563EB%22/><text y=%22.9em%22 x=%22.2em%22 font-size=%2270%22 font-weight=%22bold%22 fill=%22white%22>E</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
 
@@ -24,9 +25,10 @@
       <nav>
         <ul class="nav-menu">
           <li><a href="product.html" class="nav-link">Product</a></li>
+          <li><a href="layouts.html" class="nav-link">Layouts</a></li>
           <li><a href="features.html" class="nav-link">Features</a></li>
           <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-          <li><a href="solutions.html" class="nav-link" style="color:var(--primary-blue); font-weight:700;">Solutions</a></li>
+          <li><a href="solutions.html" class="nav-link nav-link-active">Solutions</a></li>
           <li><a href="security.html" class="nav-link">Security</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
         </ul>
@@ -38,58 +40,314 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero" style="padding-bottom:40px;">
+  <section class="hero pg-hero">
     <div class="container">
       <div class="hero-content">
         <span class="badge badge-blue">Institutional Fit</span>
-        <h1 class="hero-title" style="margin-top:16px;">One Platform. Different Institutions.</h1>
-        <p class="hero-subtitle">
-          Discover how Digital Attendance Record Book configures specifically to your campus structure.
-        </p>
+        <h1 class="hero-title" style="margin-top:16px;">One Platform.<br>Different Institutions.</h1>
+        <p class="hero-subtitle">Designed around the way different educational institutions manage attendance.</p>
       </div>
     </div>
   </section>
 
-  <!-- Solutions Grid -->
+  <!-- Solution Tabs Section -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <!-- Tab Nav -->
+      <div class="sol-tab-nav" id="sol-tab-nav">
+        <button class="sol-tab-btn active" data-tab="schools" id="tab-schools">K–12 Schools</button>
+        <button class="sol-tab-btn" data-tab="colleges" id="tab-colleges">Colleges</button>
+        <button class="sol-tab-btn" data-tab="institutes" id="tab-institutes">Coaching Institutes</button>
+      </div>
+
+      <!-- Schools Tab -->
+      <div class="sol-tab-panel active" id="panel-schools">
+        <div class="sol-split">
+          <div class="sol-split-text">
+            <span class="badge badge-blue" style="margin-bottom:20px;">SCHOOLS</span>
+            <h2 class="sol-split-heading">K–12 Schools &amp; Academies</h2>
+            <p class="sol-split-desc">Structured attendance across classes, sections and subjects, with centralized administrative visibility.</p>
+            <!-- Flow -->
+            <div class="sol-flow">
+              <div class="sol-flow-step">Class</div>
+              <div class="sol-flow-arrow">→</div>
+              <div class="sol-flow-step">Attendance</div>
+              <div class="sol-flow-arrow">→</div>
+              <div class="sol-flow-step">Dashboard</div>
+              <div class="sol-flow-arrow">→</div>
+              <div class="sol-flow-step">Reports</div>
+            </div>
+            <ul class="sol-cap-list">
+              <li>Class-wise and section-wise attendance</li>
+              <li>Subject-wise attendance tracking</li>
+              <li>Student attendance history</li>
+              <li>Administrative monitoring dashboard</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:28px;">Request School Demo</a>
+          </div>
+          <div class="sol-split-visual">
+            <!-- Product UI Mockup -->
+            <div class="sol-ui-mockup">
+              <div class="sol-ui-topbar">
+                <span class="sol-ui-title">Class Attendance</span>
+                <span class="sol-ui-date">Class 9 – Section A</span>
+              </div>
+              <div class="sol-ui-subject-bar">
+                <span class="sol-ui-subject active">Mathematics</span>
+                <span class="sol-ui-subject">English</span>
+                <span class="sol-ui-subject">Science</span>
+              </div>
+              <div class="sol-ui-roster">
+                <div class="sol-ui-student">
+                  <div class="student-avatar">AK</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Aarav Kumar</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">Roll No. 01</div>
+                  </div>
+                  <div class="status-pill status-present" style="margin-left:auto;">Present</div>
+                </div>
+                <div class="sol-ui-student">
+                  <div class="student-avatar">PS</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Priya Sharma</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">Roll No. 02</div>
+                  </div>
+                  <div class="status-pill status-present" style="margin-left:auto;">Present</div>
+                </div>
+                <div class="sol-ui-student">
+                  <div class="student-avatar">RV</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Rohan Verma</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">Roll No. 03</div>
+                  </div>
+                  <div class="status-pill status-absent" style="margin-left:auto;">Absent</div>
+                </div>
+                <div class="sol-ui-student">
+                  <div class="student-avatar">NP</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Neha Patel</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">Roll No. 04</div>
+                  </div>
+                  <div class="status-pill status-present" style="margin-left:auto;">Present</div>
+                </div>
+              </div>
+              <div class="sol-ui-footer-bar">
+                <span>Present: 3</span>
+                <span>Absent: 1</span>
+                <button class="btn btn-primary" style="padding:8px 20px; font-size:13px;">Save Attendance</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Colleges Tab -->
+      <div class="sol-tab-panel" id="panel-colleges">
+        <div class="sol-split">
+          <div class="sol-split-text">
+            <span class="badge badge-emerald" style="margin-bottom:20px;">COLLEGES</span>
+            <h2 class="sol-split-heading">Colleges &amp; Universities</h2>
+            <p class="sol-split-desc">Organized attendance across departments, classes and academic activities with role-based access for faculty and administration.</p>
+            <div class="sol-flow">
+              <div class="sol-flow-step">Department</div>
+              <div class="sol-flow-arrow">→</div>
+              <div class="sol-flow-step">Class</div>
+              <div class="sol-flow-arrow">→</div>
+              <div class="sol-flow-step">Attendance</div>
+              <div class="sol-flow-arrow">→</div>
+              <div class="sol-flow-step">Reports</div>
+            </div>
+            <ul class="sol-cap-list">
+              <li>Department-wise attendance management</li>
+              <li>Faculty-assigned class attendance</li>
+              <li>Student attendance records</li>
+              <li>Admin and principal monitoring</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:28px;">Request College Demo</a>
+          </div>
+          <div class="sol-split-visual">
+            <div class="sol-ui-mockup">
+              <div class="sol-ui-topbar">
+                <span class="sol-ui-title">Department Attendance</span>
+                <span class="sol-ui-date">CS – Semester 4</span>
+              </div>
+              <div class="sol-ui-subject-bar">
+                <span class="sol-ui-subject active">Data Structures</span>
+                <span class="sol-ui-subject">DBMS</span>
+                <span class="sol-ui-subject">Networks</span>
+              </div>
+              <div class="sol-ui-roster">
+                <div class="sol-ui-student">
+                  <div class="student-avatar" style="background:#EFF6FF; color:#2E5EFF;">SM</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Siddharth Menon</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">USN: CS2101</div>
+                  </div>
+                  <div class="status-pill status-present" style="margin-left:auto;">Present</div>
+                </div>
+                <div class="sol-ui-student">
+                  <div class="student-avatar" style="background:#EFF6FF; color:#2E5EFF;">AT</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Ayesha Thakur</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">USN: CS2102</div>
+                  </div>
+                  <div class="status-pill status-late" style="margin-left:auto;">Late</div>
+                </div>
+                <div class="sol-ui-student">
+                  <div class="student-avatar" style="background:#EFF6FF; color:#2E5EFF;">VK</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Vivek Kamath</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">USN: CS2103</div>
+                  </div>
+                  <div class="status-pill status-absent" style="margin-left:auto;">Absent</div>
+                </div>
+              </div>
+              <div class="sol-ui-footer-bar">
+                <span>Present: 1 &nbsp;|&nbsp; Late: 1</span>
+                <span>Absent: 1</span>
+                <button class="btn btn-primary" style="padding:8px 20px; font-size:13px;">Save Attendance</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coaching Institutes Tab -->
+      <div class="sol-tab-panel" id="panel-institutes">
+        <div class="sol-split">
+          <div class="sol-split-text">
+            <span class="badge badge-blue" style="margin-bottom:20px;">INSTITUTES</span>
+            <h2 class="sol-split-heading">Coaching Institutes</h2>
+            <p class="sol-split-desc">Track attendance across batches, courses and learners with a structured digital workflow designed for coaching environments.</p>
+            <div class="sol-flow">
+              <div class="sol-flow-step">Batch</div>
+              <div class="sol-flow-arrow">→</div>
+              <div class="sol-flow-step">Students</div>
+              <div class="sol-flow-arrow">→</div>
+              <div class="sol-flow-step">Attendance</div>
+              <div class="sol-flow-arrow">→</div>
+              <div class="sol-flow-step">Reports</div>
+            </div>
+            <ul class="sol-cap-list">
+              <li>Batch-wise attendance management</li>
+              <li>Course and subject tracking</li>
+              <li>Learner attendance history</li>
+              <li>Centralized admin visibility</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:28px;">Request Coaching Demo</a>
+          </div>
+          <div class="sol-split-visual">
+            <div class="sol-ui-mockup">
+              <div class="sol-ui-topbar">
+                <span class="sol-ui-title">Batch Attendance</span>
+                <span class="sol-ui-date">JEE Batch A – Physics</span>
+              </div>
+              <div class="sol-ui-subject-bar">
+                <span class="sol-ui-subject active">Physics</span>
+                <span class="sol-ui-subject">Chemistry</span>
+                <span class="sol-ui-subject">Maths</span>
+              </div>
+              <div class="sol-ui-roster">
+                <div class="sol-ui-student">
+                  <div class="student-avatar" style="background:#F0FDF4; color:#16A34A;">RG</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Riya Gupta</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">ID: JEE-A-01</div>
+                  </div>
+                  <div class="status-pill status-present" style="margin-left:auto;">Present</div>
+                </div>
+                <div class="sol-ui-student">
+                  <div class="student-avatar" style="background:#F0FDF4; color:#16A34A;">KJ</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Karan Joshi</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">ID: JEE-A-02</div>
+                  </div>
+                  <div class="status-pill status-absent" style="margin-left:auto;">Absent</div>
+                </div>
+                <div class="sol-ui-student">
+                  <div class="student-avatar" style="background:#F0FDF4; color:#16A34A;">MS</div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600;">Meera Singh</div>
+                    <div style="font-size:11px; color:var(--text-dark-muted);">ID: JEE-A-03</div>
+                  </div>
+                  <div class="status-pill status-present" style="margin-left:auto;">Present</div>
+                </div>
+              </div>
+              <div class="sol-ui-footer-bar">
+                <span>Present: 2</span>
+                <span>Absent: 1</span>
+                <button class="btn btn-primary" style="padding:8px 20px; font-size:13px;">Save Attendance</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Fit Matrix -->
   <section class="section section-subtle">
     <div class="container">
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <span class="badge badge-blue" style="align-self:flex-start;">SCHOOLS</span>
-          <h3>K-12 Schools & Academies</h3>
-          <p style="color:var(--text-dark-secondary); font-size:14px; margin-bottom:16px;">
-            Structured attendance across classes, sections, and subjects with daily administrative office synchronization.
-          </p>
-          <a href="contact.html" class="btn btn-secondary">Request School Demo</a>
+      <div style="text-align:center; max-width:600px; margin:0 auto 48px;">
+        <h2 style="font-family:var(--font-heading); font-size:clamp(28px,4vw,38px); font-weight:800; letter-spacing:-0.5px;">Different institutions.<br>One attendance platform.</h2>
+        <p style="color:var(--text-dark-secondary); margin-top:12px; font-size:16px;">The core platform works across all institution types. Here's how the key capabilities align.</p>
+      </div>
+      <div class="sol-matrix-table">
+        <div class="sol-matrix-header">
+          <div class="sol-matrix-feat-col">Capability</div>
+          <div class="sol-matrix-inst-col">Schools</div>
+          <div class="sol-matrix-inst-col">Colleges</div>
+          <div class="sol-matrix-inst-col">Institutes</div>
         </div>
-
-        <div class="pricing-card">
-          <span class="badge badge-emerald" style="align-self:flex-start;">COLLEGES</span>
-          <h3>Colleges & Universities</h3>
-          <p style="color:var(--text-dark-secondary); font-size:14px; margin-bottom:16px;">
-            Organized attendance for departments, lecture halls, practical labs, and minimum credit requirements.
-          </p>
-          <a href="contact.html" class="btn btn-secondary">Request College Demo</a>
+        <div class="sol-matrix-row">
+          <div class="sol-matrix-feat">Attendance Marking</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
         </div>
-
-        <div class="pricing-card">
-          <span class="badge badge-blue" style="align-self:flex-start;">INSTITUTES</span>
-          <h3>Coaching Institutes</h3>
-          <p style="color:var(--text-dark-secondary); font-size:14px; margin-bottom:16px;">
-            Track attendance across multiple batches, courses, custom schedules, and individual learners seamlessly.
-          </p>
-          <a href="contact.html" class="btn btn-secondary">Request Coaching Demo</a>
+        <div class="sol-matrix-row sol-matrix-row-alt">
+          <div class="sol-matrix-feat">Admin Dashboard</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+        </div>
+        <div class="sol-matrix-row">
+          <div class="sol-matrix-feat">Reports &amp; Exports</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+        </div>
+        <div class="sol-matrix-row sol-matrix-row-alt">
+          <div class="sol-matrix-feat">Student Records</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+        </div>
+        <div class="sol-matrix-row">
+          <div class="sol-matrix-feat">Role-Based Access</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+        </div>
+        <div class="sol-matrix-row sol-matrix-row-alt">
+          <div class="sol-matrix-feat">Subject-Wise Tracking</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
+          <div class="sol-matrix-val sol-check">✓</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section section-dark" style="text-align:center;">
+  <!-- Custom Requirements CTA -->
+  <section class="section section-dark" style="text-align:center; padding:100px 0;">
     <div class="container">
-      <h2 style="font-family:var(--font-heading); font-size:36px; font-weight:800;">Have custom institutional requirements?</h2>
-      <br>
-      <a href="contact.html" class="btn btn-primary" style="padding:14px 32px;">Talk to Our Solutions Team</a>
+      <h2 style="font-family:var(--font-heading); font-size:clamp(28px,4vw,42px); font-weight:800; letter-spacing:-0.5px; color:#FFF; max-width:600px; margin:0 auto 16px;">Have a different institutional workflow?</h2>
+      <p style="color:#94A3B8; font-size:18px; margin:0 auto 36px; max-width:520px; line-height:1.7;">Let's explore how the platform can fit your attendance process.</p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn btn-primary" style="padding:14px 32px;">Talk to Our Solutions Team</a>
+        <a href="contact.html" class="btn btn-outline-dark" style="padding:14px 32px;">Book a Demo</a>
+      </div>
     </div>
   </section>
 
@@ -104,5 +362,22 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script>
+    // Solutions Tab Switching
+    (function() {
+      const tabBtns = document.querySelectorAll('.sol-tab-btn');
+      const tabPanels = document.querySelectorAll('.sol-tab-panel');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.tab;
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabPanels.forEach(p => p.classList.remove('active'));
+          btn.classList.add('active');
+          const panel = document.getElementById('panel-' + target);
+          if (panel) panel.classList.add('active');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

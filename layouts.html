@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Layouts | Ebluesys Attendance Record Book</title>
+  <meta name="description" content="Explore full code-driven HTML/CSS product UI layouts for Ebluesys Digital Attendance Record Book across Mobile, Desktop, Analytics, Reports, and Student Profiles.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563EB%22/><text y=%22.9em%22 x=%22.2em%22 font-size=%2270%22 font-weight=%22bold%22 fill=%22white%22>E</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <style>
+    /* Layouts Page Styling */
+    .layouts-hero {
+      padding: 64px 0 40px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-secondary) 100%);
+      color: #FFF;
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 32px 0 48px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #94A3B8;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary-blue);
+      color: #FFF;
+      border-color: var(--primary-blue);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+    }
+
+    .layout-card {
+      background: #FFF;
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 56px;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 0;
+    }
+
+    .layout-card:hover {
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.12);
+    }
+
+    .layout-card-reversed {
+      grid-template-columns: 1fr 1.25fr;
+    }
+    .layout-card-reversed .layout-preview-area {
+      order: 2;
+    }
+
+    .layout-preview-area {
+      background: #0F172A;
+      padding: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .layout-info-area {
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .screen-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .tag-blue { background: rgba(37, 99, 235, 0.1); color: var(--primary-blue); }
+    .tag-green { background: rgba(22, 163, 74, 0.1); color: var(--accent-emerald); }
+    .tag-purple { background: rgba(139, 92, 246, 0.1); color: #8B5CF6; }
+
+    .layout-title {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-dark-primary);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .layout-subtitle {
+      font-size: 15px;
+      color: var(--text-dark-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+      background: var(--bg-light-subtle);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+    }
+
+    .spec-item {
+      font-size: 13px;
+    }
+    .spec-label {
+      color: var(--text-dark-muted);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .spec-value {
+      color: var(--text-dark-primary);
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* Native Mockup Component Styles */
+    .mockup-window {
+      width: 100%;
+      background: #1E293B;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #FFF;
+    }
+
+    .mockup-header {
+      background: #0F172A;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mockup-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-red { background: #EF4444; }
+    .dot-yellow { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+
+    .mockup-body {
+      padding: 20px;
+    }
+
+    /* Table Mockup */
+    .ui-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .ui-table th {
+      text-align: left;
+      padding: 10px 12px;
+      background: #0F172A;
+      color: #94A3B8;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .ui-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #E2E8F0;
+    }
+
+    /* Interactive hint badge */
+    .interactive-hint-badge {
+      background: rgba(37, 99, 235, 0.15);
+      color: #60A5FA;
+      border: 1px dashed rgba(96, 165, 250, 0.4);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 1024px) {
+      .layout-card, .layout-card-reversed {
+        grid-template-columns: 1fr;
+      }
+      .layout-card-reversed .layout-preview-area {
+        order: 0;
+      }
+      .layout-info-area {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-group">
+        <div class="logo-icon">E</div>
+        <div class="logo-text">
+          <span class="brand-name">Ebluesys</span>
+          <span class="brand-tag">Attendance Record Book</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="product.html" class="nav-link">Product</a></li>
+          <li><a href="layouts.html" class="nav-link nav-link-active" style="color:var(--primary-blue); font-weight:700;">Layouts</a></li>
+          <li><a href="features.html" class="nav-link">Features</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+          <li><a href="security.html" class="nav-link">Security</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Book a Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="layouts-hero">
+    <div class="container">
+      <span class="badge badge-emerald">INTERACTIVE NATIVE UI LAYOUTS</span>
+      <h1 class="hero-title" style="margin-top: 16px; font-size: 44px;">
+        Inside Ebluesys Attendance Platform
+      </h1>
+      <p class="hero-subtitle" style="max-width: 720px; margin: 14px auto 0; color: #94A3B8;">
+        Explore all 6 core product interface layouts built with fully functional interactive controls, status pills, filter buttons, and live feedback.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Layouts</button>
+        <button class="filter-btn" data-filter="mobile">Mobile App</button>
+        <button class="filter-btn" data-filter="desktop">Desktop</button>
+        <button class="filter-btn" data-filter="tablet">Tablet</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Native HTML/CSS Layout Showcase Grid -->
+  <section class="section" style="background: var(--bg-light-subtle); padding-top: 60px;">
+    <div class="container">
+
+      <!-- LAYOUT 1: Teacher Attendance Marking (Mobile App) -->
+      <div class="layout-card filter-item mobile">
+        <div class="layout-preview-area">
+          <div class="device-frame-phone" style="margin: 0; width: 100%; max-width: 320px;">
+            <div class="phone-notch"></div>
+            <div style="background: #0F172A; padding: 16px; border-radius: 12px; color: #FFF;">
+              <div class="interactive-hint-badge">⚡ Interactive Mode: Click buttons below</div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 12px;">
+                <div>
+                  <div style="font-family: var(--font-heading); font-weight: 800; font-size: 14px;">CLASS 10-A</div>
+                  <div style="font-size: 11px; color: #94A3B8;">Mathematics • Period 3</div>
+                </div>
+                <span class="badge badge-emerald" style="font-size: 9px; padding: 2px 6px;">LIVE SYNC</span>
+              </div>
+
+              <!-- Subject Tabs -->
+              <div style="display: flex; gap: 6px; margin-bottom: 14px;">
+                <button class="hero-filter-btn active" style="font-size:10px; padding:4px 8px;">Math</button>
+                <button class="hero-filter-btn trigger-hero-toast" data-toast="Switched to English Period" style="font-size:10px; padding:4px 8px;">English</button>
+                <button class="hero-filter-btn trigger-hero-toast" data-toast="Switched to Science Period" style="font-size:10px; padding:4px 8px;">Science</button>
+              </div>
+
+              <!-- Roster Items -->
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; background: #1E293B; padding: 8px 10px; border-radius: 8px; font-size: 11px;">
+                  <div>Ananya Singh</div>
+                  <button class="status-pill-btn btn-pres selected interactive-toggle" data-student="Ananya Singh">✓ Present</button>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; background: #1E293B; padding: 8px 10px; border-radius: 8px; font-size: 11px;">
+                  <div>Rahul Verma</div>
+                  <button class="status-pill-btn btn-pres selected interactive-toggle" data-student="Rahul Verma">✓ Present</button>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; background: #1E293B; padding: 8px 10px; border-radius: 8px; font-size: 11px;">
+                  <div>Priya Sharma</div>
+                  <button class="status-pill-btn btn-abs selected interactive-toggle" data-student="Priya Sharma">✕ Absent</button>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; background: #1E293B; padding: 8px 10px; border-radius: 8px; font-size: 11px;">
+                  <div>Arjun Mehta</div>
+                  <button class="status-pill-btn btn-pres selected interactive-toggle" data-student="Arjun Mehta">✓ Present</button>
+                </div>
+              </div>
+
+              <button class="btn btn-primary trigger-hero-toast" data-toast="✅ Attendance saved & synced to central database!" style="width: 100%; margin-top: 12px; padding: 8px; font-size: 11px;">Save Attendance Record</button>
+            </div>
+          </div>
+        </div>
+        <div class="layout-info-area">
+          <span class="screen-tag tag-blue">Mobile Interface</span>
+          <h2 class="layout-title">Teacher Attendance Marking</h2>
+          <p class="layout-subtitle">
+            Touch-optimized mobile roster view for teachers to record period-wise attendance in under 30 seconds with single-tap controls.
+          </p>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <div class="spec-label">Device Target</div>
+              <div class="spec-value">Smartphone (iOS / Android)</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Primary Color</div>
+              <div class="spec-value">Deep Navy & Fresh Green</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Key Actions</div>
+              <div class="spec-value">Present / Absent / Late Toggles</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Primary User</div>
+              <div class="spec-value">Class Teachers & Faculty</div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="width: max-content; padding: 10px 22px; font-size: 14px;">Book Demo for Teacher App</a>
+        </div>
+      </div>
+
+      <!-- LAYOUT 2: Admin Command Dashboard (Desktop) -->
+      <div class="layout-card layout-card-reversed filter-item desktop">
+        <div class="layout-preview-area">
+          <div class="mockup-window">
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div style="font-size: 11px; color: #94A3B8; font-weight: 600;">Ebluesys Admin Console</div>
+              <div style="display:flex; gap:4px;">
+                <button class="hero-filter-btn active l2-period-btn" data-period="week">Week</button>
+                <button class="hero-filter-btn l2-period-btn" data-period="month">Month</button>
+              </div>
+            </div>
+            <div class="mockup-body">
+              <div class="interactive-hint-badge">⚡ Interactive Mode: Switch filter buttons above</div>
+
+              <!-- KPI Stats Row -->
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px;">
+                <div style="background: #0F172A; padding: 8px; border-radius: 8px;">
+                  <div style="font-size: 9px; color: #94A3B8;">Total</div>
+                  <div style="font-size: 14px; font-weight: 800;">1,248</div>
+                </div>
+                <div style="background: #0F172A; padding: 8px; border-radius: 8px;">
+                  <div style="font-size: 9px; color: #10B981;">Present</div>
+                  <div style="font-size: 14px; font-weight: 800; color: #10B981;">1,032</div>
+                </div>
+                <div style="background: #0F172A; padding: 8px; border-radius: 8px;">
+                  <div style="font-size: 9px; color: #EF4444;">Absent</div>
+                  <div style="font-size: 14px; font-weight: 800; color: #EF4444;">216</div>
+                </div>
+                <div style="background: #0F172A; padding: 8px; border-radius: 8px;">
+                  <div style="font-size: 9px; color: #F59E0B;">Rate</div>
+                  <div style="font-size: 14px; font-weight: 800; color: #F59E0B;">82.7%</div>
+                </div>
+              </div>
+
+              <!-- Bars Visualization -->
+              <div style="background: #0F172A; padding: 12px; border-radius: 8px;">
+                <div style="font-size: 11px; font-weight: 700; margin-bottom: 8px;" id="l2-chart-title">Daily Attendance Trend (%)</div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; height: 60px; padding-top: 10px;" id="l2-chart-bars">
+                  <div style="width: 15%; background: var(--primary-blue); height: 85%; border-radius: 3px 3px 0 0;"></div>
+                  <div style="width: 15%; background: var(--accent-emerald); height: 92%; border-radius: 3px 3px 0 0;"></div>
+                  <div style="width: 15%; background: var(--primary-blue); height: 80%; border-radius: 3px 3px 0 0;"></div>
+                  <div style="width: 15%; background: var(--accent-emerald); height: 96%; border-radius: 3px 3px 0 0;"></div>
+                  <div style="width: 15%; background: var(--primary-blue); height: 88%; border-radius: 3px 3px 0 0;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="layout-info-area">
+          <span class="screen-tag tag-green">MacBook Desktop Web App</span>
+          <h2 class="layout-title">Admin Command Dashboard</h2>
+          <p class="layout-subtitle">
+            Centralized administrative command console providing instant real-time oversight of overall campus attendance, trends, and recent absentees.
+          </p>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <div class="spec-label">Device Target</div>
+              <div class="spec-value">MacBook & Desktop Browsers</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">UI Components</div>
+              <div class="spec-value">4 KPI Cards + Trend Graph</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Data Refresh</div>
+              <div class="spec-value">Live Cloud Feed</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Primary User</div>
+              <div class="spec-value">School Administrators & Staff</div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="width: max-content; padding: 10px 22px; font-size: 14px;">Book Demo for Admin Console</a>
+        </div>
+      </div>
+
+      <!-- LAYOUT 3: Attendance Analytics (Desktop) -->
+      <div class="layout-card filter-item desktop">
+        <div class="layout-preview-area">
+          <div class="mockup-window">
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div style="font-size: 11px; color: #94A3B8; font-weight: 600;">Analytics & Insights Center</div>
+              <span class="badge badge-emerald" style="font-size: 9px; padding: 2px 6px;">94.2% AVG</span>
+            </div>
+            <div class="mockup-body">
+              <div class="interactive-hint-badge">⚡ Interactive Mode: Click subjects or alerts below</div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <!-- Subject Performance -->
+                <div style="background: #0F172A; padding: 12px; border-radius: 8px;">
+                  <div style="font-size: 11px; font-weight: 700; margin-bottom: 8px;">Subject Attendance</div>
+                  <div style="font-size: 11px; display: flex; flex-direction: column; gap: 6px;">
+                    <div class="trigger-hero-toast" data-toast="Mathematics Attendance: 94%" style="cursor:pointer;">Mathematics: <b style="color: #10B981;">94%</b>
+                      <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 94%;"></div></div>
+                    </div>
+                    <div class="trigger-hero-toast" data-toast="Science Attendance: 88%" style="cursor:pointer;">Science: <b style="color: #60A5FA;">88%</b>
+                      <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 88%; background: #60A5FA;"></div></div>
+                    </div>
+                    <div class="trigger-hero-toast" data-toast="English Attendance: 96%" style="cursor:pointer;">English: <b style="color: #10B981;">96%</b>
+                      <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 96%;"></div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Risk Alerts -->
+                <div style="background: #0F172A; padding: 12px; border-radius: 8px;">
+                  <div style="font-size: 11px; font-weight: 700; margin-bottom: 8px; color: #F87171;">⚠️ Absenteeism Risk Flags</div>
+                  <div style="display: flex; flex-direction: column; gap: 6px; font-size: 10px;">
+                    <div class="trigger-hero-toast" data-toast="Alert sent to Priya Sharma's parent" style="cursor:pointer; background: rgba(239, 68, 68, 0.15); padding: 6px; border-radius: 6px; border-left: 2px solid #EF4444;">
+                      Priya Sharma (10-A) • 3 Days Consecutive
+                    </div>
+                    <div class="trigger-hero-toast" data-toast="Counselor notified for Karan Kumar" style="cursor:pointer; background: rgba(245, 158, 11, 0.15); padding: 6px; border-radius: 6px; border-left: 2px solid #F59E0B;">
+                      Karan Kumar (11-B) • 72% Monthly Rate
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="layout-info-area">
+          <span class="screen-tag tag-purple">Desktop Web App</span>
+          <h2 class="layout-title">Attendance Analytics & Insights</h2>
+          <p class="layout-subtitle">
+            Visual analytics dashboard comparing class trends, subject attendance percentages, and absenteeism risk indicators.
+          </p>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <div class="spec-label">Device Target</div>
+              <div class="spec-value">Desktop & Laptop Web Browsers</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Visualization</div>
+              <div class="spec-value">Bar Charts & Progress Grids</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Metrics Tracked</div>
+              <div class="spec-value">Class % Rates & Subject Logs</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Primary User</div>
+              <div class="spec-value">Principals & Department Heads</div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="width: max-content; padding: 10px 22px; font-size: 14px;">Book Demo for Analytics</a>
+        </div>
+      </div>
+
+      <!-- LAYOUT 4: Monthly Register Reports (Desktop) -->
+      <div class="layout-card layout-card-reversed filter-item desktop">
+        <div class="layout-preview-area">
+          <div class="mockup-window">
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div style="font-size: 11px; color: #94A3B8; font-weight: 600;">Monthly Register • Class 10-A (May 2026)</div>
+              <div style="display:flex; gap:4px;">
+                <button class="hero-filter-btn trigger-hero-toast" data-toast="📄 PDF Register downloaded!" style="font-size:10px; padding:2px 8px;">PDF</button>
+                <button class="hero-filter-btn trigger-hero-toast" data-toast="📊 Excel Register exported!" style="font-size:10px; padding:2px 8px;">Excel</button>
+              </div>
+            </div>
+            <div class="mockup-body" style="padding: 12px; overflow-x: auto;">
+              <div class="interactive-hint-badge">⚡ Interactive Mode: Click export buttons above</div>
+
+              <table class="ui-table">
+                <thead>
+                  <tr>
+                    <th>Roll</th>
+                    <th>Student Name</th>
+                    <th>Days</th>
+                    <th>Present</th>
+                    <th>Absent</th>
+                    <th>Rate %</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1001</td>
+                    <td>Ananya Singh</td>
+                    <td>22</td>
+                    <td>21</td>
+                    <td>1</td>
+                    <td style="color:#10B981; font-weight:700;">95.4%</td>
+                    <td><span style="background:rgba(16,185,129,0.2); color:#10B981; padding:2px 6px; border-radius:4px; font-size:9px;">EXCELLENT</span></td>
+                  </tr>
+                  <tr>
+                    <td>1002</td>
+                    <td>Rahul Verma</td>
+                    <td>22</td>
+                    <td>20</td>
+                    <td>1</td>
+                    <td style="color:#60A5FA; font-weight:700;">90.9%</td>
+                    <td><span style="background:rgba(37,99,235,0.2); color:#60A5FA; padding:2px 6px; border-radius:4px; font-size:9px;">GOOD</span></td>
+                  </tr>
+                  <tr>
+                    <td>1003</td>
+                    <td>Priya Sharma</td>
+                    <td>22</td>
+                    <td>15</td>
+                    <td>7</td>
+                    <td style="color:#EF4444; font-weight:700;">68.1%</td>
+                    <td><span style="background:rgba(239,68,68,0.2); color:#EF4444; padding:2px 6px; border-radius:4px; font-size:9px;">LOW</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="layout-info-area">
+          <span class="screen-tag tag-blue">Desktop Web App</span>
+          <h2 class="layout-title">Monthly Register Reports</h2>
+          <p class="layout-subtitle">
+            Automated monthly attendance registers with student-wise breakdown, aggregate totals, and one-click PDF/Excel export.
+          </p>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <div class="spec-label">Device Target</div>
+              <div class="spec-value">Desktop Web App</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Output Formats</div>
+              <div class="spec-value">PDF & Excel Registers</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Compliance</div>
+              <div class="spec-value">Board & Institutional Audit</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Primary User</div>
+              <div class="spec-value">Academic Office & Admin</div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="width: max-content; padding: 10px 22px; font-size: 14px;">Book Demo for Reports</a>
+        </div>
+      </div>
+
+      <!-- LAYOUT 5: Student Profile (Tablet) -->
+      <div class="layout-card filter-item tablet">
+        <div class="layout-preview-area">
+          <div class="device-frame-tablet" style="width: 100%; max-width: 440px;">
+            <div style="background: #0F172A; padding: 18px; border-radius: 16px; color: #FFF;">
+              <div class="interactive-hint-badge">⚡ Interactive Mode: Click timeline pills</div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 14px;">
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--primary-blue); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px;">RV</div>
+                  <div>
+                    <div style="font-family: var(--font-heading); font-weight: 800; font-size: 15px;">Rohan Verma</div>
+                    <div style="font-size: 11px; color: #94A3B8;">Class 10-A • Roll 1002</div>
+                  </div>
+                </div>
+                <span class="badge badge-emerald" style="font-size: 10px; padding: 4px 8px;">91.5% RATE</span>
+              </div>
+
+              <!-- Timeline -->
+              <div style="font-size: 11px; font-weight: 700; margin-bottom: 8px;">Recent Attendance Timeline</div>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <span class="trigger-hero-toast" data-toast="12 May: Present in Math & Physics" style="cursor:pointer; background: rgba(16,185,129,0.2); color:#10B981; padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: 700;">12 May ✓</span>
+                <span class="trigger-hero-toast" data-toast="11 May: Present all periods" style="cursor:pointer; background: rgba(16,185,129,0.2); color:#10B981; padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: 700;">11 May ✓</span>
+                <span class="trigger-hero-toast" data-toast="10 May: Absent (Medical leave submitted)" style="cursor:pointer; background: rgba(239,68,68,0.2); color:#EF4444; padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: 700;">10 May ✕</span>
+                <span class="trigger-hero-toast" data-toast="09 May: Present all periods" style="cursor:pointer; background: rgba(16,185,129,0.2); color:#10B981; padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: 700;">09 May ✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="layout-info-area">
+          <span class="screen-tag tag-green">Tablet / iPad App</span>
+          <h2 class="layout-title">Student Attendance Profile</h2>
+          <p class="layout-subtitle">
+            Individual student history dashboard showing overall percentage, recent attendance timeline chips, and subject performance.
+          </p>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <div class="spec-label">Device Target</div>
+              <div class="spec-value">Tablet & iPad Devices</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">View Type</div>
+              <div class="spec-value">360-degree Student Profile</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Timeline</div>
+              <div class="spec-value">Recent Log Badges</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Primary User</div>
+              <div class="spec-value">Class Teachers & Counselors</div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="width: max-content; padding: 10px 22px; font-size: 14px;">Book Demo for Student Profile</a>
+        </div>
+      </div>
+
+      <!-- LAYOUT 6: Mobile Command Dashboard (Mobile App) -->
+      <div class="layout-card layout-card-reversed filter-item mobile">
+        <div class="layout-preview-area">
+          <div class="device-frame-phone" style="margin: 0; width: 100%; max-width: 320px;">
+            <div class="phone-notch"></div>
+            <div style="background: #0F172A; padding: 16px; border-radius: 12px; color: #FFF;">
+              <div class="interactive-hint-badge">⚡ Interactive Mode: Click card below</div>
+
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; margin-bottom: 2px;">Campus Console</div>
+              <div style="font-size: 11px; color: #94A3B8; margin-bottom: 12px;">Overview Dashboard</div>
+
+              <!-- Main Hero Banner Card -->
+              <div class="trigger-hero-toast" data-toast="Overall Campus Rate: 92.4%" style="cursor:pointer; background: linear-gradient(135deg, var(--primary-blue), #1E40AF); padding: 14px; border-radius: 12px; margin-bottom: 12px; text-align: center;">
+                <div style="font-size: 10px; color: rgba(255,255,255,0.8); text-transform: uppercase; font-weight: 700;">Campus Attendance Today</div>
+                <div style="font-size: 26px; font-weight: 800; margin-top: 2px;">92.4%</div>
+              </div>
+
+              <!-- Quick Action Button -->
+              <button class="btn btn-primary trigger-hero-toast" data-toast="Opening mobile marking window..." style="width:100%; padding:10px; font-size:12px;">
+                ⚡ Mark Period Attendance
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="layout-info-area">
+          <span class="screen-tag tag-purple">Mobile Interface</span>
+          <h2 class="layout-title">Mobile Command Dashboard</h2>
+          <p class="layout-subtitle">
+            Smartphone application dashboard providing quick status counters, instant class selection, and one-tap attendance triggers.
+          </p>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <div class="spec-label">Device Target</div>
+              <div class="spec-value">Smartphone (iOS / Android)</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">UI Panels</div>
+              <div class="spec-value">Rounded Action Cards</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Live Indicators</div>
+              <div class="spec-value">Campus Attendance Rate</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-label">Primary User</div>
+              <div class="spec-value">Administrators on the Go</div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="width: max-content; padding: 10px 22px; font-size: 14px;">Book Demo for Mobile App</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo-group" style="margin-bottom:16px; display:inline-flex;">
+            <div class="logo-icon">E</div>
+            <div class="logo-text">
+              <span class="brand-name" style="color:#FFF;">Ebluesys</span>
+              <span class="brand-tag">Attendance Record Book</span>
+            </div>
+          </a>
+          <p class="footer-desc">
+            Digital Attendance Record Book designed for modern schools, colleges, and educational institutes.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Product</h4>
+          <ul class="footer-links">
+            <li><a href="product.html">Product Overview</a></li>
+            <li><a href="layouts.html">Product Layouts</a></li>
+            <li><a href="features.html">Feature Matrix</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="solutions.html#schools">For Schools</a></li>
+            <li><a href="solutions.html#colleges">For Colleges</a></li>
+            <li><a href="solutions.html#institutes">For Coaching Institutes</a></li>
+            <li><a href="security.html">Security & Governance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="contact.html">Book a Demo</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Ebluesys Technologies Private Limited. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container & Handlers -->
+  <div class="hero-toast-container" id="layoutsToastContainer"></div>
+  <script>
+    (function() {
+      // Toast System
+      function showToast(msg) {
+        const container = document.getElementById('layoutsToastContainer');
+        const toast = document.createElement('div');
+        toast.className = 'hero-toast';
+        toast.innerHTML = '⚡ ' + msg;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      }
+
+      // Filter Tabs
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.filter-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const category = btn.dataset.filter;
+          items.forEach(item => {
+            if (category === 'all' || item.classList.contains(category)) {
+              item.style.display = 'grid';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Interactive status toggles on Layout 1
+      document.querySelectorAll('.interactive-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const student = btn.dataset.student;
+          if (btn.classList.contains('btn-pres')) {
+            btn.className = 'status-pill-btn btn-abs selected interactive-toggle';
+            btn.innerText = '✕ Absent';
+            showToast(`${student} marked ABSENT`);
+          } else {
+            btn.className = 'status-pill-btn btn-pres selected interactive-toggle';
+            btn.innerText = '✓ Present';
+            showToast(`${student} marked PRESENT`);
+          }
+        });
+      });
+
+      // Layout 2 chart filter
+      const l2Btns = document.querySelectorAll('.l2-period-btn');
+      const l2Bars = document.getElementById('l2-chart-bars');
+      l2Btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          l2Btns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (btn.dataset.period === 'month') {
+            l2Bars.innerHTML = `
+              <div style="width: 20%; background: var(--primary-blue); height: 95%; border-radius: 3px 3px 0 0;"></div>
+              <div style="width: 20%; background: var(--accent-emerald); height: 88%; border-radius: 3px 3px 0 0;"></div>
+              <div style="width: 20%; background: var(--primary-blue); height: 97%; border-radius: 3px 3px 0 0;"></div>
+              <div style="width: 20%; background: var(--accent-emerald); height: 92%; border-radius: 3px 3px 0 0;"></div>
+            `;
+            showToast("Admin Console chart updated to Monthly view");
+          } else {
+            l2Bars.innerHTML = `
+              <div style="width: 15%; background: var(--primary-blue); height: 85%; border-radius: 3px 3px 0 0;"></div>
+              <div style="width: 15%; background: var(--accent-emerald); height: 92%; border-radius: 3px 3px 0 0;"></div>
+              <div style="width: 15%; background: var(--primary-blue); height: 80%; border-radius: 3px 3px 0 0;"></div>
+              <div style="width: 15%; background: var(--accent-emerald); height: 96%; border-radius: 3px 3px 0 0;"></div>
+              <div style="width: 15%; background: var(--primary-blue); height: 88%; border-radius: 3px 3px 0 0;"></div>
+            `;
+            showToast("Admin Console chart updated to Weekly view");
+          }
+        });
+      });
+
+      // Generic Toast Triggers
+      document.querySelectorAll('.trigger-hero-toast').forEach(btn => {
+        btn.addEventListener('click', () => {
+          showToast(btn.dataset.toast || 'Action triggered');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

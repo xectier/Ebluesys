@@ -21,8 +21,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- CSS Stylesheet -->
+  <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
 
@@ -40,6 +41,7 @@
       <nav>
         <ul class="nav-menu">
           <li><a href="product.html" class="nav-link">Product</a></li>
+          <li><a href="layouts.html" class="nav-link">Layouts</a></li>
           <li><a href="features.html" class="nav-link">Features</a></li>
           <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
           <li><a href="solutions.html" class="nav-link">Solutions</a></li>
@@ -121,77 +123,216 @@
                   <div class="logo-icon" style="width:28px; height:28px; font-size:14px;">E</div>
                   <span>Attendance Book</span>
                 </div>
-                <ul class="sidebar-nav">
-                  <li class="sidebar-item active">📊 Dashboard</li>
-                  <li class="sidebar-item">✏️ Mark Attendance</li>
-                  <li class="sidebar-item">🏫 Classes & Subjects</li>
-                  <li class="sidebar-item">📑 Attendance Reports</li>
-                  <li class="sidebar-item">👤 Student Profiles</li>
+                <ul class="sidebar-nav" id="hero-sidebar-nav">
+                  <li class="sidebar-item active" id="hero-nav-dash" data-hero-panel="dashboard">📊 Dashboard</li>
+                  <li class="sidebar-item" id="hero-nav-mark" data-hero-panel="mark">✏️ Mark Attendance</li>
+                  <li class="sidebar-item" id="hero-nav-classes" data-hero-panel="classes">🏫 Classes & Subjects</li>
+                  <li class="sidebar-item" id="hero-nav-reports" data-hero-panel="reports">📑 Attendance Reports</li>
+                  <li class="sidebar-item" id="hero-nav-profiles" data-hero-panel="profiles">👤 Student Profiles</li>
                 </ul>
               </div>
 
               <div class="main-ui">
+                <!-- Unified Hero Dashboard Topbar -->
                 <div class="topbar-ui">
                   <div>
-                    <h2 class="topbar-title">Institution Command Center</h2>
-                    <span class="topbar-date">Academic Year 2026-27 • Today's Live Status</span>
+                    <h2 class="topbar-title" id="hp-topbar-title">Institution Command Center</h2>
+                    <span class="topbar-date" id="hp-topbar-sub">Academic Year 2026-27 • Live Sync Active</span>
                   </div>
-                  <div class="badge badge-emerald">Live Connected</div>
+                  <span class="badge badge-emerald">Live Connected</span>
                 </div>
 
+                <!-- Unified KPI Stats Row (Always visible) -->
                 <div class="kpi-grid">
                   <div class="kpi-card">
                     <span class="kpi-label">Total Students</span>
-                    <span class="kpi-val">1,240</span>
+                    <span class="kpi-val" id="hp-kpi-total">1,240</span>
                     <span class="kpi-sub up">Active Enrolled</span>
                   </div>
                   <div class="kpi-card">
                     <span class="kpi-label">Present Today</span>
-                    <span class="kpi-val" id="kpi-present">1,184</span>
-                    <span class="kpi-sub up">↑ 95.5% Attended</span>
+                    <span class="kpi-val" id="hp-kpi-present" style="color:#10B981;">1,184</span>
+                    <span class="kpi-sub up" id="hp-kpi-present-sub">↑ 95.5% Attended</span>
                   </div>
                   <div class="kpi-card">
                     <span class="kpi-label">Absent Today</span>
-                    <span class="kpi-val" id="kpi-absent">56</span>
-                    <span class="kpi-sub down">4.5% Absentees</span>
+                    <span class="kpi-val" id="hp-kpi-absent" style="color:#EF4444;">56</span>
+                    <span class="kpi-sub down" id="hp-kpi-absent-sub">4.5% Absentees</span>
                   </div>
                   <div class="kpi-card">
                     <span class="kpi-label">Attendance Rate</span>
-                    <span class="kpi-val" id="kpi-rate">95.5%</span>
+                    <span class="kpi-val" id="hp-kpi-rate" style="color:#60A5FA;">95.5%</span>
                     <span class="kpi-sub up">Target Achieved</span>
                   </div>
                 </div>
 
-                <div class="chart-grid">
-                  <div class="chart-card">
-                    <div class="chart-header">
-                      <span class="chart-title">Daily Attendance Trend (This Week)</span>
-                      <span style="font-size:11px; color:#94A3B8;">Demo Sample Data</span>
+                <!-- SWITCHABLE WORKSPACE PANELS -->
+
+                <!-- Panel 1: Dashboard Charts -->
+                <div class="hero-panel active" id="hp-dashboard">
+                  <div class="chart-grid">
+                    <div class="chart-card">
+                      <div class="chart-header">
+                        <span class="chart-title">Daily Attendance Trend</span>
+                        <div style="display:flex; gap:4px;">
+                          <button class="hero-filter-btn active" data-chart-period="week">Week</button>
+                          <button class="hero-filter-btn" data-chart-period="month">Month</button>
+                          <button class="hero-filter-btn" data-chart-period="year">Year</button>
+                        </div>
+                      </div>
+                      <div class="mock-bar-chart" id="hp-chart-bars">
+                        <div class="bar-col"><div class="bar-fill" style="height: 92%;"></div><span class="bar-label">Mon</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 96%;"></div><span class="bar-label">Tue</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 94%;"></div><span class="bar-label">Wed</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 98%;"></div><span class="bar-label">Thu</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 95%;"></div><span class="bar-label">Fri</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 89%;"></div><span class="bar-label">Sat</span></div>
+                      </div>
                     </div>
-                    <div class="mock-bar-chart">
-                      <div class="bar-col"><div class="bar-fill" style="height: 92%;"></div><span class="bar-label">Mon</span></div>
-                      <div class="bar-col"><div class="bar-fill" style="height: 96%;"></div><span class="bar-label">Tue</span></div>
-                      <div class="bar-col"><div class="bar-fill" style="height: 94%;"></div><span class="bar-label">Wed</span></div>
-                      <div class="bar-col"><div class="bar-fill" style="height: 98%;"></div><span class="bar-label">Thu</span></div>
-                      <div class="bar-col"><div class="bar-fill" style="height: 95%;"></div><span class="bar-label">Fri</span></div>
-                      <div class="bar-col"><div class="bar-fill" style="height: 89%;"></div><span class="bar-label">Sat</span></div>
+
+                    <div class="chart-card">
+                      <div class="chart-header">
+                        <span class="chart-title">Class Performance</span>
+                      </div>
+                      <div style="display:flex; flex-direction:column; gap:12px; font-size:13px; padding-top:10px;">
+                        <div style="cursor:pointer;" data-switch-to-class="10a">
+                          <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Class 10-A</span><b id="hp-c10a-rate">98%</b></div>
+                          <div style="height:6px; background:#334155; border-radius:4px;"><div id="hp-c10a-bar" style="width:98%; height:100%; background:#10B981; border-radius:4px;"></div></div>
+                        </div>
+                        <div style="cursor:pointer;" data-switch-to-class="10b">
+                          <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Class 10-B</span><b>94%</b></div>
+                          <div style="height:6px; background:#334155; border-radius:4px;"><div style="width:94%; height:100%; background:#3B82F6; border-radius:4px;"></div></div>
+                        </div>
+                        <div style="cursor:pointer;" data-switch-to-class="12a">
+                          <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Class 12-A</span><b>96%</b></div>
+                          <div style="height:6px; background:#334155; border-radius:4px;"><div style="width:96%; height:100%; background:#F59E0B; border-radius:4px;"></div></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </div>
 
-                  <div class="chart-card">
-                    <div class="chart-header">
-                      <span class="chart-title">Class Performance</span>
-                    </div>
-                    <div style="display:flex; flex-direction:column; gap:12px; font-size:13px; padding-top:10px;">
-                      <div>
-                        <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Class 10-A</span><b>98%</b></div>
-                        <div style="height:6px; background:#334155; border-radius:4px;"><div style="width:98%; height:100%; background:#10B981; border-radius:4px;"></div></div>
-                      </div>
-                      <div>
-                        <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Class 12-B</span><b>94%</b></div>
-                        <div style="height:6px; background:#334155; border-radius:4px;"><div style="width:94%; height:100%; background:#3B82F6; border-radius:4px;"></div></div>
+                <!-- Panel 2: Mark Attendance Roster -->
+                <div class="hero-panel" id="hp-mark">
+                  <div style="background:#0B1120; border-radius:12px; padding:16px; border:1px solid var(--border-dark);">
+                    <div style="font-weight:700; font-size:14px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                      <span id="hp-roster-title">Class 10-A • Mathematics Roster</span>
+                      <div style="display:flex; gap:6px;">
+                        <button class="hero-filter-btn active" data-class-pick="10a">10-A</button>
+                        <button class="hero-filter-btn" data-class-pick="10b">10-B</button>
+                        <button class="hero-filter-btn" data-class-pick="12a">12-A</button>
                       </div>
                     </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;" id="hp-roster-list">
+                      <!-- Dynamically rendered roster -->
+                    </div>
+
+                    <button class="btn btn-primary" id="hp-save-roster-btn" style="width:100%; margin-top:12px; padding:8px; font-size:12px;">
+                      Save Attendance & Sync to Cloud
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Panel 3: Classes & Subjects -->
+                <div class="hero-panel" id="hp-classes">
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                    <div style="background:#0B1120; padding:14px; border-radius:12px; border:1px solid var(--border-dark);">
+                      <div style="font-weight:700; font-size:14px; color:#60A5FA;">Class 10-A</div>
+                      <div style="font-size:11px; color:#94A3B8;">Period 3 • Mathematics</div>
+                      <div style="margin-top:10px; display:flex; justify-content:space-between; font-size:11px;">
+                        <span>Status: <b style="color:#10B981;">Marked</b></span>
+                        <span>Rate: <b>98%</b></span>
+                      </div>
+                      <button class="btn btn-secondary" data-switch-to-class="10a" style="width:100%; margin-top:10px; padding:6px; font-size:11px;">View Roster</button>
+                    </div>
+
+                    <div style="background:#0B1120; padding:14px; border-radius:12px; border:1px solid var(--border-dark);">
+                      <div style="font-weight:700; font-size:14px; color:#F59E0B;">Class 10-B</div>
+                      <div style="font-size:11px; color:#94A3B8;">Period 3 • Physics</div>
+                      <div style="margin-top:10px; display:flex; justify-content:space-between; font-size:11px;">
+                        <span>Status: <b style="color:#F59E0B;">Pending</b></span>
+                        <span>Enrolled: <b>42</b></span>
+                      </div>
+                      <button class="btn btn-primary" data-switch-to-class="10b" style="width:100%; margin-top:10px; padding:6px; font-size:11px;">Mark Now</button>
+                    </div>
+
+                    <div style="background:#0B1120; padding:14px; border-radius:12px; border:1px solid var(--border-dark);">
+                      <div style="font-weight:700; font-size:14px; color:#10B981;">Class 12-A</div>
+                      <div style="font-size:11px; color:#94A3B8;">Period 4 • Chemistry</div>
+                      <div style="margin-top:10px; display:flex; justify-content:space-between; font-size:11px;">
+                        <span>Status: <b style="color:#10B981;">Marked</b></span>
+                        <span>Rate: <b>96%</b></span>
+                      </div>
+                      <button class="btn btn-secondary" data-switch-to-class="12a" style="width:100%; margin-top:10px; padding:6px; font-size:11px;">View Roster</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Panel 4: Attendance Reports -->
+                <div class="hero-panel" id="hp-reports">
+                  <div style="background:#0B1120; border-radius:12px; padding:12px; border:1px solid var(--border-dark);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+                      <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-weight:700; font-size:13px; color:#60A5FA;">Class 10-A Monthly Register</span>
+                        <div style="display:flex; gap:4px;">
+                          <button class="hero-filter-btn active" data-report-month="may">May 2026</button>
+                          <button class="hero-filter-btn" data-report-month="april">April 2026</button>
+                          <button class="hero-filter-btn" data-report-month="march">March 2026</button>
+                        </div>
+                      </div>
+                      <div style="display:flex; gap:6px;">
+                        <button class="btn btn-primary trigger-hero-toast" data-toast="📄 PDF Register downloaded!" style="padding:4px 10px; font-size:11px;">Download PDF</button>
+                        <button class="btn btn-secondary trigger-hero-toast" data-toast="📊 Excel Register exported!" style="padding:4px 10px; font-size:11px;">Export Excel</button>
+                      </div>
+                    </div>
+                    <table class="ui-table">
+                      <thead>
+                        <tr>
+                          <th>Roll</th>
+                          <th>Student Name</th>
+                          <th>Total</th>
+                          <th>Present</th>
+                          <th>Absent</th>
+                          <th>Rate %</th>
+                        </tr>
+                      </thead>
+                      <tbody id="hp-reports-tbody">
+                        <!-- Rendered via JS -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Panel 5: Student Profiles -->
+                <div class="hero-panel" id="hp-profiles">
+                  <div style="background:#0B1120; padding:14px; border-radius:12px; border:1px solid var(--border-dark);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                      <div>
+                        <h3 style="font-family:var(--font-heading); font-size:16px; font-weight:800;" id="hp-prof-name">Aarav Sharma</h3>
+                        <div style="font-size:11px; color:#94A3B8;" id="hp-prof-sub">Class 10-A • Roll 1001</div>
+                      </div>
+                      <div style="display:flex; gap:4px;">
+                        <button class="hero-filter-btn active" data-prof-pick="aarav">Aarav</button>
+                        <button class="hero-filter-btn" data-prof-pick="ananya">Ananya</button>
+                        <button class="hero-filter-btn" data-prof-pick="devendra">Devendra</button>
+                        <button class="hero-filter-btn" data-prof-pick="priya">Priya</button>
+                      </div>
+                    </div>
+
+                    <div style="display:flex; gap:16px; margin-bottom:12px; background:#1E293B; padding:10px; border-radius:8px; font-size:11px;">
+                      <div>Attendance Rate: <b style="color:#10B981;" id="hp-prof-rate">95.4%</b></div>
+                      <div>Guardian: <span style="color:#94A3B8;" id="hp-prof-guardian">Rajesh Sharma (+91 98765-XXXXX)</span></div>
+                    </div>
+
+                    <div style="font-size:11px; font-weight:700; margin-bottom:6px;">Recent Log Timeline:</div>
+                    <div style="display:flex; gap:6px; flex-wrap:wrap;" id="hp-prof-logs">
+                      <!-- Rendered via JS -->
+                    </div>
+
+                    <button class="btn btn-secondary trigger-hero-toast" data-toast="📱 SMS Notification sent to Guardian!" style="width:100%; margin-top:12px; padding:6px; font-size:11px;">
+                      📲 Send SMS Alert to Guardian
+                    </button>
                   </div>
                 </div>
 
@@ -200,23 +341,423 @@
           </div>
         </div>
 
+        <!-- Interactive Floating Phone Mockup -->
         <div class="mobile-mockup-floating">
           <div class="phone-screen">
             <div class="phone-header">
               <span>📱 Teacher App</span>
-              <span class="badge badge-emerald" style="font-size:9px; padding:2px 6px;">Live</span>
+              <span class="badge badge-emerald" style="font-size:9px; padding:2px 6px;">Live Sync</span>
             </div>
-            <div style="font-size:11px; font-weight:700; color:#94A3B8;">Class 10-A • Mathematics</div>
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              <div class="phone-student-item"><span>01. Aarav Sharma</span> <span class="status-pill status-present">PRESENT</span></div>
-              <div class="phone-student-item"><span>02. Ananya Patel</span> <span class="status-pill status-present">PRESENT</span></div>
-              <div class="phone-student-item"><span>03. Devendra Roy</span> <span class="status-pill status-absent">ABSENT</span></div>
+            <div style="font-size:11px; font-weight:700; color:#94A3B8; margin-bottom:6px;">Class 10-A • Mathematics</div>
+            <div style="display:flex; flex-direction:column; gap:8px;" id="phone-roster">
+              <!-- Rendered dynamically -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Interactive Hero Mockup JS Handler -->
+  <div class="hero-toast-container" id="heroToastContainer"></div>
+  <script>
+    (function() {
+      // Toast notification system
+      // Toast notification system
+      function showToast(msg) {
+        let container = document.getElementById('heroToastContainer');
+        if (!container) {
+          container = document.createElement('div');
+          container.id = 'heroToastContainer';
+          container.className = 'hero-toast-container';
+          document.body.appendChild(container);
+        }
+        const toast = document.createElement('div');
+        toast.className = 'hero-toast';
+        toast.innerHTML = '⚡ ' + msg;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      }
+
+      // State Management
+      const state = {
+        activePanel: 'dashboard',
+        activeClass: '10a',
+        chartPeriod: 'week',
+        reportMonth: 'may',
+        activeProfile: 'aarav',
+        classesData: {
+          '10a': {
+            title: 'Class 10-A • Mathematics Roster',
+            students: [
+              { id: 0, name: 'Aarav Sharma', roll: '1001', status: 'present' },
+              { id: 1, name: 'Ananya Patel', roll: '1002', status: 'present' },
+              { id: 2, name: 'Devendra Roy', roll: '1003', status: 'absent' },
+              { id: 3, name: 'Priya Sharma', roll: '1004', status: 'present' }
+            ]
+          },
+          '10b': {
+            title: 'Class 10-B • Physics Roster',
+            students: [
+              { id: 0, name: 'Vikram Singh', roll: '1051', status: 'present' },
+              { id: 1, name: 'Sneha Rao', roll: '1052', status: 'late' },
+              { id: 2, name: 'Rohan Kapoor', roll: '1053', status: 'present' },
+              { id: 3, name: 'Kavya Nair', roll: '1054', status: 'present' }
+            ]
+          },
+          '12a': {
+            title: 'Class 12-A • Chemistry Roster',
+            students: [
+              { id: 0, name: 'Kabir Verma', roll: '1201', status: 'present' },
+              { id: 1, name: 'Diya Joshi', roll: '1202', status: 'present' },
+              { id: 2, name: 'Yash Malhotra', roll: '1203', status: 'present' },
+              { id: 3, name: 'Meera Sen', roll: '1204', status: 'absent' }
+            ]
+          }
+        },
+        studentProfiles: {
+          aarav: {
+            name: 'Aarav Sharma',
+            sub: 'Class 10-A • Roll 1001 • Math Sec A',
+            rate: '95.4%',
+            guardian: 'Rajesh Sharma (+91 98765-XXXXX)',
+            logs: [
+              { date: '12 May', status: 'present', label: '12 May ✓ Present' },
+              { date: '11 May', status: 'present', label: '11 May ✓ Present' },
+              { date: '10 May', status: 'absent', label: '10 May ✕ Absent' },
+              { date: '09 May', status: 'present', label: '09 May ✓ Present' }
+            ]
+          },
+          ananya: {
+            name: 'Ananya Patel',
+            sub: 'Class 10-A • Roll 1002 • Math Sec A',
+            rate: '100%',
+            guardian: 'Suresh Patel (+91 98123-XXXXX)',
+            logs: [
+              { date: '12 May', status: 'present', label: '12 May ✓ Present' },
+              { date: '11 May', status: 'present', label: '11 May ✓ Present' },
+              { date: '10 May', status: 'present', label: '10 May ✓ Present' },
+              { date: '09 May', status: 'present', label: '09 May ✓ Present' }
+            ]
+          },
+          devendra: {
+            name: 'Devendra Roy',
+            sub: 'Class 10-A • Roll 1003 • Math Sec A',
+            rate: '68.1%',
+            guardian: 'Amit Roy (+91 97654-XXXXX)',
+            logs: [
+              { date: '12 May', status: 'absent', label: '12 May ✕ Absent' },
+              { date: '11 May', status: 'present', label: '11 May ✓ Present' },
+              { date: '10 May', status: 'absent', label: '10 May ✕ Absent' },
+              { date: '09 May', status: 'absent', label: '09 May ✕ Absent' }
+            ]
+          },
+          priya: {
+            name: 'Priya Sharma',
+            sub: 'Class 10-A • Roll 1004 • Math Sec A',
+            rate: '90.9%',
+            guardian: 'Sunil Sharma (+91 99887-XXXXX)',
+            logs: [
+              { date: '12 May', status: 'present', label: '12 May ✓ Present' },
+              { date: '11 May', status: 'present', label: '11 May ✓ Present' },
+              { date: '10 May', status: 'present', label: '10 May ✓ Present' },
+              { date: '09 May', status: 'absent', label: '09 May ✕ Absent' }
+            ]
+          }
+        },
+        reportsData: {
+          may: [
+            { roll: '1001', name: 'Aarav Sharma', total: 22, present: 21, absent: 1, rate: '95.4%', color: '#10B981' },
+            { roll: '1002', name: 'Ananya Patel', total: 22, present: 22, absent: 0, rate: '100%', color: '#10B981' },
+            { roll: '1003', name: 'Devendra Roy', total: 22, present: 15, absent: 7, rate: '68.1%', color: '#EF4444' },
+            { roll: '1004', name: 'Priya Sharma', total: 22, present: 20, absent: 2, rate: '90.9%', color: '#10B981' }
+          ],
+          april: [
+            { roll: '1001', name: 'Aarav Sharma', total: 20, present: 19, absent: 1, rate: '95.0%', color: '#10B981' },
+            { roll: '1002', name: 'Ananya Patel', total: 20, present: 19, absent: 1, rate: '95.0%', color: '#10B981' },
+            { roll: '1003', name: 'Devendra Roy', total: 20, present: 14, absent: 6, rate: '70.0%', color: '#EF4444' },
+            { roll: '1004', name: 'Priya Sharma', total: 20, present: 18, absent: 2, rate: '90.0%', color: '#10B981' }
+          ],
+          march: [
+            { roll: '1001', name: 'Aarav Sharma', total: 24, present: 24, absent: 0, rate: '100%', color: '#10B981' },
+            { roll: '1002', name: 'Ananya Patel', total: 24, present: 23, absent: 1, rate: '95.8%', color: '#10B981' },
+            { roll: '1003', name: 'Devendra Roy', total: 24, present: 19, absent: 5, rate: '79.1%', color: '#F59E0B' },
+            { roll: '1004', name: 'Priya Sharma', total: 24, present: 22, absent: 2, rate: '91.6%', color: '#10B981' }
+          ]
+        }
+      };
+
+      function recalculateKPIs() {
+        let curStudents = state.classesData[state.activeClass].students;
+        let presCount = curStudents.filter(s => s.status === 'present' || s.status === 'late').length;
+        let basePresent = 1180 + presCount;
+        let baseAbsent = 60 - presCount;
+        let total = 1240;
+        let rate = ((basePresent / total) * 100).toFixed(1);
+
+        const elPres = document.getElementById('hp-kpi-present');
+        const elAbs = document.getElementById('hp-kpi-absent');
+        const elRate = document.getElementById('hp-kpi-rate');
+        const elC10aRate = document.getElementById('hp-c10a-rate');
+        const elC10aBar = document.getElementById('hp-c10a-bar');
+
+        if (elPres) elPres.innerText = basePresent.toLocaleString();
+        if (elAbs) elAbs.innerText = baseAbsent;
+        if (elRate) elRate.innerText = rate + '%';
+        if (elC10aRate) elC10aRate.innerText = rate + '%';
+        if (elC10aBar) elC10aBar.style.width = rate + '%';
+      }
+
+      function renderRoster() {
+        const rosterTitle = document.getElementById('hp-roster-title');
+        const rosterList = document.getElementById('hp-roster-list');
+        const phoneRoster = document.getElementById('phone-roster');
+        const curClass = state.classesData[state.activeClass];
+
+        if (rosterTitle) rosterTitle.innerText = curClass.title;
+
+        if (rosterList) {
+          rosterList.innerHTML = curClass.students.map((st, idx) => `
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#1E293B; padding:8px 12px; border-radius:8px; font-size:12px;">
+              <div><b>0${idx + 1}. ${st.name}</b> <span style="color:#94A3B8; font-size:10px;">(Roll ${st.roll})</span></div>
+              <div style="display:flex; gap:4px;">
+                <button class="status-pill-btn btn-pres ${st.status === 'present' ? 'selected' : ''}" data-student="${idx}" data-status="present">✓ Present</button>
+                <button class="status-pill-btn btn-abs ${st.status === 'absent' ? 'selected' : ''}" data-student="${idx}" data-status="absent">✕ Absent</button>
+                <button class="status-pill-btn btn-late ${st.status === 'late' ? 'selected' : ''}" data-student="${idx}" data-status="late">⏱ Late</button>
+              </div>
+            </div>
+          `).join('');
+
+          rosterList.querySelectorAll('.status-pill-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const sIdx = parseInt(btn.dataset.student);
+              const stVal = btn.dataset.status;
+              curClass.students[sIdx].status = stVal;
+              renderRoster();
+              recalculateKPIs();
+              showToast(`${curClass.students[sIdx].name} marked as ${stVal.toUpperCase()}`);
+            });
+          });
+        }
+
+        if (phoneRoster) {
+          phoneRoster.innerHTML = curClass.students.slice(0, 3).map((st, idx) => `
+            <div class="phone-student-item">
+              <span>0${idx + 1}. ${st.name.split(' ')[0]}</span>
+              <button class="status-pill-btn ${st.status === 'present' ? 'btn-pres' : (st.status === 'absent' ? 'btn-abs' : 'btn-late')} selected phone-btn" data-student="${idx}">
+                ${st.status === 'present' ? '✓ PRESENT' : (st.status === 'absent' ? '✕ ABSENT' : '⏱ LATE')}
+              </button>
+            </div>
+          `).join('');
+
+          phoneRoster.querySelectorAll('.phone-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const sIdx = parseInt(btn.dataset.student);
+              const current = curClass.students[sIdx].status;
+              const next = current === 'present' ? 'absent' : (current === 'absent' ? 'late' : 'present');
+              curClass.students[sIdx].status = next;
+              renderRoster();
+              recalculateKPIs();
+              showToast(`Mobile App: Updated ${curClass.students[sIdx].name} to ${next.toUpperCase()}`);
+            });
+          });
+        }
+      }
+
+      function renderProfile() {
+        const prof = state.studentProfiles[state.activeProfile];
+        if (!prof) return;
+        const nameEl = document.getElementById('hp-prof-name');
+        const subEl = document.getElementById('hp-prof-sub');
+        const rateEl = document.getElementById('hp-prof-rate');
+        const logsEl = document.getElementById('hp-prof-logs');
+        const guardianEl = document.getElementById('hp-prof-guardian');
+
+        if (nameEl) nameEl.innerText = prof.name;
+        if (subEl) subEl.innerText = prof.sub;
+        if (rateEl) rateEl.innerText = prof.rate;
+        if (guardianEl) guardianEl.innerText = prof.guardian;
+
+        if (logsEl) {
+          logsEl.innerHTML = prof.logs.map(log => `
+            <span style="background:${log.status === 'present' ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}; color:${log.status === 'present' ? '#10B981' : '#EF4444'}; padding:4px 8px; border-radius:12px; font-size:10px; font-weight:700;">
+              ${log.label}
+            </span>
+          `).join('');
+        }
+      }
+
+      function renderReports() {
+        const rows = state.reportsData[state.reportMonth];
+        const tbody = document.getElementById('hp-reports-tbody');
+        if (tbody && rows) {
+          tbody.innerHTML = rows.map(r => `
+            <tr>
+              <td>${r.roll}</td>
+              <td><b>${r.name}</b></td>
+              <td>${r.total}</td>
+              <td>${r.present}</td>
+              <td>${r.absent}</td>
+              <td style="color:${r.color}; font-weight:700;">${r.rate}</td>
+            </tr>
+          `).join('');
+        }
+      }
+
+      // Sidebar Panel Switcher
+      const sidebarItems = document.querySelectorAll('#hero-sidebar-nav .sidebar-item');
+      const heroPanels = document.querySelectorAll('.hero-panel');
+      const topbarTitle = document.getElementById('hp-topbar-title');
+      const topbarSub = document.getElementById('hp-topbar-sub');
+
+      const titles = {
+        dashboard: "Institution Command Center",
+        mark: "Interactive Teacher Attendance Console",
+        classes: "Classes & Timetable Management",
+        reports: "Attendance Reports & Compliance",
+        profiles: "Student Profile Search & History"
+      };
+
+      const subs = {
+        dashboard: "Academic Year 2026-27 • Live Sync Active",
+        mark: "Select class and click student buttons to toggle status live",
+        classes: "Live Period Monitoring Across All Sections",
+        reports: "Automated Register Generator • May 2026",
+        profiles: "Select student to inspect individual attendance logs"
+      };
+
+      sidebarItems.forEach(item => {
+        item.addEventListener('click', () => {
+          sidebarItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+          const panelKey = item.dataset.heroPanel;
+          const panelId = 'hp-' + panelKey;
+
+          if (titles[panelKey]) topbarTitle.innerText = titles[panelKey];
+          if (subs[panelKey]) topbarSub.innerText = subs[panelKey];
+
+          document.querySelectorAll('.hero-panel').forEach(p => p.classList.toggle('active', p.id === panelId));
+          showToast('Switched layout to ' + item.innerText);
+        });
+      });
+
+      // Class pickers inside Mark panel
+      document.querySelectorAll('[data-class-pick]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-class-pick]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state.activeClass = btn.dataset.classPick;
+          renderRoster();
+          recalculateKPIs();
+          showToast('Loaded ' + state.classesData[state.activeClass].title);
+        });
+      });
+
+      // Chart period filter
+      document.querySelectorAll('[data-chart-period]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-chart-period]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const period = btn.dataset.chartPeriod;
+          const chartBars = document.getElementById('hp-chart-bars');
+          if (!chartBars) return;
+
+          if (period === 'month') {
+            chartBars.innerHTML = `
+              <div class="bar-col"><div class="bar-fill" style="height: 94%;"></div><span class="bar-label">W1</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 91%;"></div><span class="bar-label">W2</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 97%;"></div><span class="bar-label">W3</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 95%;"></div><span class="bar-label">W4</span></div>
+            `;
+            showToast("Chart updated to Monthly view");
+          } else if (period === 'year') {
+            chartBars.innerHTML = `
+              <div class="bar-col"><div class="bar-fill" style="height: 96%;"></div><span class="bar-label">Term 1</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 94%;"></div><span class="bar-label">Term 2</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 97%;"></div><span class="bar-label">Term 3</span></div>
+            `;
+            showToast("Chart updated to Academic Year view");
+          } else {
+            chartBars.innerHTML = `
+              <div class="bar-col"><div class="bar-fill" style="height: 92%;"></div><span class="bar-label">Mon</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 96%;"></div><span class="bar-label">Tue</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 94%;"></div><span class="bar-label">Wed</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 98%;"></div><span class="bar-label">Thu</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 95%;"></div><span class="bar-label">Fri</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 89%;"></div><span class="bar-label">Sat</span></div>
+            `;
+            showToast("Chart updated to Weekly view");
+          }
+        });
+      });
+
+      // Student Profile Switcher
+      document.querySelectorAll('[data-prof-pick]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-prof-pick]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state.activeProfile = btn.dataset.profPick;
+          renderProfile();
+          showToast('Viewing student record for ' + state.studentProfiles[state.activeProfile].name);
+        });
+      });
+
+      // Month pickers inside Reports panel
+      document.querySelectorAll('[data-report-month]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-report-month]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state.reportMonth = btn.dataset.reportMonth;
+          renderReports();
+          showToast('Reports updated for ' + btn.innerText);
+        });
+      });
+
+      // Direct class switchers from Classes panel & Dashboard cards
+      document.querySelectorAll('[data-switch-to-class]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const cls = btn.dataset.switchToClass;
+          state.activeClass = cls;
+
+          // Switch panel to Mark
+          const markNavItem = document.getElementById('hero-nav-mark');
+          if (markNavItem) markNavItem.click();
+
+          // Highlight class pick button
+          const classBtn = document.querySelector(`[data-class-pick="${cls}"]`);
+          if (classBtn) classBtn.click();
+        });
+      });
+
+      // Save roster button
+      const saveBtn = document.getElementById('hp-save-roster-btn');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+          saveBtn.innerText = '⏳ Syncing Attendance to Cloud...';
+          setTimeout(() => {
+            saveBtn.innerText = 'Save Attendance & Sync to Cloud';
+            const liveBadge = document.querySelector('.topbar-ui .badge');
+            if (liveBadge) liveBadge.innerText = 'Synced Just Now';
+            showToast('✅ Attendance Saved & Synced to Cloud!');
+          }, 600);
+        });
+      }
+
+      // Generic Toast Triggers
+      document.querySelectorAll('.trigger-hero-toast').forEach(btn => {
+        btn.addEventListener('click', () => {
+          showToast(btn.dataset.toast || 'Action completed');
+        });
+      });
+
+      // Initial Renders
+      renderRoster();
+      recalculateKPIs();
+      renderProfile();
+      renderReports();
+
+    })();
+  </script>
 
   <!-- Post-Hero Trust Section -->
   <section class="trust-section">

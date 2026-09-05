@@ -14,6 +14,7 @@
   
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
 
@@ -30,6 +31,7 @@
       <nav>
         <ul class="nav-menu">
           <li><a href="product.html" class="nav-link" style="color:var(--primary-blue); font-weight:700;">Product</a></li>
+          <li><a href="layouts.html" class="nav-link">Layouts</a></li>
           <li><a href="features.html" class="nav-link">Features</a></li>
           <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
           <li><a href="solutions.html" class="nav-link">Solutions</a></li>
@@ -61,38 +63,551 @@
         </div>
       </div>
 
-      <!-- Hero Dominating Product UI Mockup -->
-      <div style="max-width: 1080px; margin: 48px auto 0;" class="device-mockup">
-        <div class="device-screen" style="background: var(--bg-dark-secondary); color: #FFF; padding: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-dark); padding-bottom: 16px; margin-bottom: 20px;">
-            <div>
-              <div style="font-family: var(--font-heading); font-weight: 800; font-size: 18px;">Ebluesys Attendance Command Console</div>
-              <div style="font-size: 12px; color: var(--text-light-muted);">Campus ID: INST-2026 • Live Sync Active</div>
-            </div>
-            <span class="badge badge-blue" style="font-size: 11px;">SAMPLE DATA</span>
-          </div>
+      <!-- Hero Product Showcase Mockup -->
+      <div class="hero-mockup-wrapper">
+        <div class="laptop-frame">
+          <div class="laptop-screen">
+            <div class="dashboard-ui">
+              <div class="sidebar-ui">
+                <div class="sidebar-brand">
+                  <div class="logo-icon" style="width:28px; height:28px; font-size:14px;">E</div>
+                  <span>Attendance Book</span>
+                </div>
+                <ul class="sidebar-nav" id="prod-sidebar-nav">
+                  <li class="sidebar-item active" id="prod-nav-dash" data-hero-panel="dashboard">📊 Dashboard</li>
+                  <li class="sidebar-item" id="prod-nav-mark" data-hero-panel="mark">✏️ Mark Attendance</li>
+                  <li class="sidebar-item" id="prod-nav-classes" data-hero-panel="classes">🏫 Classes & Subjects</li>
+                  <li class="sidebar-item" id="prod-nav-reports" data-hero-panel="reports">📑 Attendance Reports</li>
+                  <li class="sidebar-item" id="prod-nav-profiles" data-hero-panel="profiles">👤 Student Profiles</li>
+                </ul>
+              </div>
 
-          <!-- Quick Stats Row -->
-          <div class="dash-stats-row">
-            <div class="dash-stat-box">
-              <div style="font-size: 12px; color: var(--text-light-muted);">Total Enrolled</div>
-              <div class="dash-stat-val">1,248</div>
+              <div class="main-ui">
+                <!-- Unified Hero Dashboard Topbar -->
+                <div class="topbar-ui">
+                  <div>
+                    <h2 class="topbar-title" id="prod-topbar-title">Institution Command Center</h2>
+                    <span class="topbar-date" id="prod-topbar-sub">Academic Year 2026-27 • Live Sync Active</span>
+                  </div>
+                  <span class="badge badge-emerald">Live Connected</span>
+                </div>
+
+                <!-- Unified KPI Stats Row (Always visible) -->
+                <div class="kpi-grid">
+                  <div class="kpi-card">
+                    <span class="kpi-label">Total Students</span>
+                    <span class="kpi-val" id="prod-kpi-total">1,240</span>
+                    <span class="kpi-sub up">Active Enrolled</span>
+                  </div>
+                  <div class="kpi-card">
+                    <span class="kpi-label">Present Today</span>
+                    <span class="kpi-val" id="prod-kpi-present" style="color:#10B981;">1,184</span>
+                    <span class="kpi-sub up" id="prod-kpi-present-sub">↑ 95.5% Attended</span>
+                  </div>
+                  <div class="kpi-card">
+                    <span class="kpi-label">Absent Today</span>
+                    <span class="kpi-val" id="prod-kpi-absent" style="color:#EF4444;">56</span>
+                    <span class="kpi-sub down" id="prod-kpi-absent-sub">4.5% Absentees</span>
+                  </div>
+                  <div class="kpi-card">
+                    <span class="kpi-label">Attendance Rate</span>
+                    <span class="kpi-val" id="prod-kpi-rate" style="color:#60A5FA;">95.5%</span>
+                    <span class="kpi-sub up">Target Achieved</span>
+                  </div>
+                </div>
+
+                <!-- SWITCHABLE WORKSPACE PANELS -->
+
+                <!-- Panel 1: Dashboard Charts -->
+                <div class="hero-panel active" id="prod-panel-dashboard">
+                  <div class="chart-grid">
+                    <div class="chart-card">
+                      <div class="chart-header">
+                        <span class="chart-title">Daily Attendance Trend</span>
+                        <div style="display:flex; gap:4px;">
+                          <button class="hero-filter-btn active" data-prod-chart="week">Week</button>
+                          <button class="hero-filter-btn" data-prod-chart="month">Month</button>
+                          <button class="hero-filter-btn" data-prod-chart="year">Year</button>
+                        </div>
+                      </div>
+                      <div class="mock-bar-chart" id="prod-chart-bars">
+                        <div class="bar-col"><div class="bar-fill" style="height: 92%;"></div><span class="bar-label">Mon</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 96%;"></div><span class="bar-label">Tue</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 94%;"></div><span class="bar-label">Wed</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 98%;"></div><span class="bar-label">Thu</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 95%;"></div><span class="bar-label">Fri</span></div>
+                        <div class="bar-col"><div class="bar-fill" style="height: 89%;"></div><span class="bar-label">Sat</span></div>
+                      </div>
+                    </div>
+
+                    <div class="chart-card">
+                      <div class="chart-header">
+                        <span class="chart-title">Class Performance</span>
+                      </div>
+                      <div style="display:flex; flex-direction:column; gap:12px; font-size:13px; padding-top:10px;">
+                        <div style="cursor:pointer;" data-prod-switch-class="10a">
+                          <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Class 10-A</span><b id="prod-c10a-rate">98%</b></div>
+                          <div style="height:6px; background:#334155; border-radius:4px;"><div id="prod-c10a-bar" style="width:98%; height:100%; background:#10B981; border-radius:4px;"></div></div>
+                        </div>
+                        <div style="cursor:pointer;" data-prod-switch-class="10b">
+                          <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Class 10-B</span><b>94%</b></div>
+                          <div style="height:6px; background:#334155; border-radius:4px;"><div style="width:94%; height:100%; background:#3B82F6; border-radius:4px;"></div></div>
+                        </div>
+                        <div style="cursor:pointer;" data-prod-switch-class="12a">
+                          <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Class 12-A</span><b>96%</b></div>
+                          <div style="height:6px; background:#334155; border-radius:4px;"><div style="width:96%; height:100%; background:#F59E0B; border-radius:4px;"></div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Panel 2: Mark Attendance Roster -->
+                <div class="hero-panel" id="prod-panel-mark">
+                  <div style="background:#0B1120; border-radius:12px; padding:16px; border:1px solid var(--border-dark);">
+                    <div style="font-weight:700; font-size:14px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                      <span id="prod-roster-title">Class 10-A • Mathematics Roster</span>
+                      <div style="display:flex; gap:6px;">
+                        <button class="hero-filter-btn active" data-prod-class="10a">10-A</button>
+                        <button class="hero-filter-btn" data-prod-class="10b">10-B</button>
+                        <button class="hero-filter-btn" data-prod-class="12a">12-A</button>
+                      </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;" id="prod-roster-list">
+                      <!-- Dynamically rendered roster -->
+                    </div>
+
+                    <button class="btn btn-primary" id="prod-save-roster-btn" style="width:100%; margin-top:12px; padding:8px; font-size:12px;">
+                      Save Attendance & Sync to Cloud
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Panel 3: Classes & Subjects -->
+                <div class="hero-panel" id="prod-panel-classes">
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                    <div style="background:#0B1120; padding:14px; border-radius:12px; border:1px solid var(--border-dark);">
+                      <div style="font-weight:700; font-size:14px; color:#60A5FA;">Class 10-A</div>
+                      <div style="font-size:11px; color:#94A3B8;">Period 3 • Mathematics</div>
+                      <div style="margin-top:10px; display:flex; justify-content:space-between; font-size:11px;">
+                        <span>Status: <b style="color:#10B981;">Marked</b></span>
+                        <span>Rate: <b>98%</b></span>
+                      </div>
+                      <button class="btn btn-secondary" data-prod-switch-class="10a" style="width:100%; margin-top:10px; padding:6px; font-size:11px;">View Roster</button>
+                    </div>
+
+                    <div style="background:#0B1120; padding:14px; border-radius:12px; border:1px solid var(--border-dark);">
+                      <div style="font-weight:700; font-size:14px; color:#F59E0B;">Class 10-B</div>
+                      <div style="font-size:11px; color:#94A3B8;">Period 3 • Physics</div>
+                      <div style="margin-top:10px; display:flex; justify-content:space-between; font-size:11px;">
+                        <span>Status: <b style="color:#F59E0B;">Pending</b></span>
+                        <span>Enrolled: <b>42</b></span>
+                      </div>
+                      <button class="btn btn-primary" data-prod-switch-class="10b" style="width:100%; margin-top:10px; padding:6px; font-size:11px;">Mark Now</button>
+                    </div>
+
+                    <div style="background:#0B1120; padding:14px; border-radius:12px; border:1px solid var(--border-dark);">
+                      <div style="font-weight:700; font-size:14px; color:#10B981;">Class 12-A</div>
+                      <div style="font-size:11px; color:#94A3B8;">Period 4 • Chemistry</div>
+                      <div style="margin-top:10px; display:flex; justify-content:space-between; font-size:11px;">
+                        <span>Status: <b style="color:#10B981;">Marked</b></span>
+                        <span>Rate: <b>96%</b></span>
+                      </div>
+                      <button class="btn btn-secondary" data-prod-switch-class="12a" style="width:100%; margin-top:10px; padding:6px; font-size:11px;">View Roster</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Panel 4: Attendance Reports -->
+                <div class="hero-panel" id="prod-panel-reports">
+                  <div style="background:#0B1120; border-radius:12px; padding:12px; border:1px solid var(--border-dark);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+                      <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-weight:700; font-size:13px; color:#60A5FA;">Class 10-A Monthly Register</span>
+                        <div style="display:flex; gap:4px;">
+                          <button class="hero-filter-btn active" data-prod-report="may">May 2026</button>
+                          <button class="hero-filter-btn" data-prod-report="april">April 2026</button>
+                          <button class="hero-filter-btn" data-prod-report="march">March 2026</button>
+                        </div>
+                      </div>
+                      <div style="display:flex; gap:6px;">
+                        <button class="btn btn-primary trigger-hero-toast" data-toast="📄 PDF Register downloaded!" style="padding:4px 10px; font-size:11px;">Download PDF</button>
+                        <button class="btn btn-secondary trigger-hero-toast" data-toast="📊 Excel Register exported!" style="padding:4px 10px; font-size:11px;">Export Excel</button>
+                      </div>
+                    </div>
+                    <table class="ui-table">
+                      <thead>
+                        <tr>
+                          <th>Roll</th>
+                          <th>Student Name</th>
+                          <th>Total</th>
+                          <th>Present</th>
+                          <th>Absent</th>
+                          <th>Rate %</th>
+                        </tr>
+                      </thead>
+                      <tbody id="prod-reports-tbody">
+                        <!-- Rendered via JS -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Panel 5: Student Profiles -->
+                <div class="hero-panel" id="prod-panel-profiles">
+                  <div style="background:#0B1120; padding:14px; border-radius:12px; border:1px solid var(--border-dark);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                      <div>
+                        <h3 style="font-family:var(--font-heading); font-size:16px; font-weight:800;" id="prod-prof-name">Aarav Sharma</h3>
+                        <div style="font-size:11px; color:#94A3B8;" id="prod-prof-sub">Class 10-A • Roll 1001</div>
+                      </div>
+                      <div style="display:flex; gap:4px;">
+                        <button class="hero-filter-btn active" data-prod-prof="aarav">Aarav</button>
+                        <button class="hero-filter-btn" data-prod-prof="ananya">Ananya</button>
+                        <button class="hero-filter-btn" data-prod-prof="devendra">Devendra</button>
+                        <button class="hero-filter-btn" data-prod-prof="priya">Priya</button>
+                      </div>
+                    </div>
+
+                    <div style="display:flex; gap:16px; margin-bottom:12px; background:#1E293B; padding:10px; border-radius:8px; font-size:11px;">
+                      <div>Attendance Rate: <b style="color:#10B981;" id="prod-prof-rate">95.4%</b></div>
+                      <div>Guardian: <span style="color:#94A3B8;" id="prod-prof-guardian">Rajesh Sharma (+91 98765-XXXXX)</span></div>
+                    </div>
+
+                    <div style="font-size:11px; font-weight:700; margin-bottom:6px;">Recent Log Timeline:</div>
+                    <div style="display:flex; gap:6px; flex-wrap:wrap;" id="prod-prof-logs">
+                      <!-- Rendered via JS -->
+                    </div>
+
+                    <button class="btn btn-secondary trigger-hero-toast" data-toast="📱 SMS Notification sent to Guardian!" style="width:100%; margin-top:12px; padding:6px; font-size:11px;">
+                      📲 Send SMS Alert to Guardian
+                    </button>
+                  </div>
+                </div>
+
+              </div>
             </div>
-            <div class="dash-stat-box">
-              <div style="font-size: 12px; color: var(--accent-emerald);">Present Today</div>
-              <div class="dash-stat-val" style="color: var(--accent-emerald);">1,032</div>
+          </div>
+        </div>
+
+        <!-- Interactive Floating Phone Mockup -->
+        <div class="mobile-mockup-floating">
+          <div class="phone-screen">
+            <div class="phone-header">
+              <span>📱 Teacher App</span>
+              <span class="badge badge-emerald" style="font-size:9px; padding:2px 6px;">Live Sync</span>
             </div>
-            <div class="dash-stat-box">
-              <div style="font-size: 12px; color: var(--accent-rose);">Absent</div>
-              <div class="dash-stat-val" style="color: #F43F5E;">216</div>
-            </div>
-            <div class="dash-stat-box">
-              <div style="font-size: 12px; color: var(--accent-amber);">Attendance Rate</div>
-              <div class="dash-stat-val" style="color: #F59E0B;">82.7%</div>
+            <div style="font-size:11px; font-weight:700; color:#94A3B8; margin-bottom:6px;">Class 10-A • Mathematics</div>
+            <div style="display:flex; flex-direction:column; gap:8px;" id="prod-phone-roster">
+              <!-- Rendered dynamically -->
             </div>
           </div>
         </div>
       </div>
+
+      <script>
+        (function() {
+          function showProdToast(msg) {
+            let container = document.getElementById('heroToastContainer');
+            if (!container) {
+              container = document.createElement('div');
+              container.id = 'heroToastContainer';
+              container.className = 'hero-toast-container';
+              document.body.appendChild(container);
+            }
+            const toast = document.createElement('div');
+            toast.className = 'hero-toast';
+            toast.innerHTML = '⚡ ' + msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+          }
+
+          const state = {
+            activeClass: '10a',
+            reportMonth: 'may',
+            activeProfile: 'aarav',
+            classesData: {
+              '10a': {
+                title: 'Class 10-A • Mathematics Roster',
+                students: [
+                  { id: 0, name: 'Aarav Sharma', roll: '1001', status: 'present' },
+                  { id: 1, name: 'Ananya Patel', roll: '1002', status: 'present' },
+                  { id: 2, name: 'Devendra Roy', roll: '1003', status: 'absent' },
+                  { id: 3, name: 'Priya Sharma', roll: '1004', status: 'present' }
+                ]
+              },
+              '10b': {
+                title: 'Class 10-B • Physics Roster',
+                students: [
+                  { id: 0, name: 'Vikram Singh', roll: '1051', status: 'present' },
+                  { id: 1, name: 'Sneha Rao', roll: '1052', status: 'late' },
+                  { id: 2, name: 'Rohan Kapoor', roll: '1053', status: 'present' },
+                  { id: 3, name: 'Kavya Nair', roll: '1054', status: 'present' }
+                ]
+              },
+              '12a': {
+                title: 'Class 12-A • Chemistry Roster',
+                students: [
+                  { id: 0, name: 'Kabir Verma', roll: '1201', status: 'present' },
+                  { id: 1, name: 'Diya Joshi', roll: '1202', status: 'present' },
+                  { id: 2, name: 'Yash Malhotra', roll: '1203', status: 'present' },
+                  { id: 3, name: 'Meera Sen', roll: '1204', status: 'absent' }
+                ]
+              }
+            },
+            studentProfiles: {
+              aarav: { name: 'Aarav Sharma', sub: 'Class 10-A • Roll 1001', rate: '95.4%', guardian: 'Rajesh Sharma (+91 98765-XXXXX)', logs: [{ date: '12 May', status: 'present', label: '12 May ✓ Present' }, { date: '11 May', status: 'present', label: '11 May ✓ Present' }] },
+              ananya: { name: 'Ananya Patel', sub: 'Class 10-A • Roll 1002', rate: '100%', guardian: 'Suresh Patel (+91 98123-XXXXX)', logs: [{ date: '12 May', status: 'present', label: '12 May ✓ Present' }] },
+              devendra: { name: 'Devendra Roy', sub: 'Class 10-A • Roll 1003', rate: '68.1%', guardian: 'Amit Roy (+91 97654-XXXXX)', logs: [{ date: '12 May', status: 'absent', label: '12 May ✕ Absent' }] },
+              priya: { name: 'Priya Sharma', sub: 'Class 10-A • Roll 1004', rate: '90.9%', guardian: 'Sunil Sharma (+91 99887-XXXXX)', logs: [{ date: '12 May', status: 'present', label: '12 May ✓ Present' }] }
+            },
+            reportsData: {
+              may: [
+                { roll: '1001', name: 'Aarav Sharma', total: 22, present: 21, absent: 1, rate: '95.4%', color: '#10B981' },
+                { roll: '1002', name: 'Ananya Patel', total: 22, present: 22, absent: 0, rate: '100%', color: '#10B981' },
+                { roll: '1003', name: 'Devendra Roy', total: 22, present: 15, absent: 7, rate: '68.1%', color: '#EF4444' },
+                { roll: '1004', name: 'Priya Sharma', total: 22, present: 20, absent: 2, rate: '90.9%', color: '#10B981' }
+              ],
+              april: [
+                { roll: '1001', name: 'Aarav Sharma', total: 20, present: 19, absent: 1, rate: '95.0%', color: '#10B981' },
+                { roll: '1002', name: 'Ananya Patel', total: 20, present: 19, absent: 1, rate: '95.0%', color: '#10B981' }
+              ],
+              march: [
+                { roll: '1001', name: 'Aarav Sharma', total: 24, present: 24, absent: 0, rate: '100%', color: '#10B981' }
+              ]
+            }
+          };
+
+          function recalcProdKPIs() {
+            let curStudents = state.classesData[state.activeClass].students;
+            let presCount = curStudents.filter(s => s.status === 'present' || s.status === 'late').length;
+            let basePresent = 1180 + presCount;
+            let baseAbsent = 60 - presCount;
+            let total = 1240;
+            let rate = ((basePresent / total) * 100).toFixed(1);
+
+            const elPres = document.getElementById('prod-kpi-present');
+            const elAbs = document.getElementById('prod-kpi-absent');
+            const elRate = document.getElementById('prod-kpi-rate');
+            const elC10aRate = document.getElementById('prod-c10a-rate');
+            const elC10aBar = document.getElementById('prod-c10a-bar');
+
+            if (elPres) elPres.innerText = basePresent.toLocaleString();
+            if (elAbs) elAbs.innerText = baseAbsent;
+            if (elRate) elRate.innerText = rate + '%';
+            if (elC10aRate) elC10aRate.innerText = rate + '%';
+            if (elC10aBar) elC10aBar.style.width = rate + '%';
+          }
+
+          function renderProdRoster() {
+            const rosterTitle = document.getElementById('prod-roster-title');
+            const rosterList = document.getElementById('prod-roster-list');
+            const phoneRoster = document.getElementById('prod-phone-roster');
+            const curClass = state.classesData[state.activeClass];
+
+            if (rosterTitle) rosterTitle.innerText = curClass.title;
+
+            if (rosterList) {
+              rosterList.innerHTML = curClass.students.map((st, idx) => `
+                <div style="display:flex; justify-content:space-between; align-items:center; background:#1E293B; padding:8px 12px; border-radius:8px; font-size:12px;">
+                  <div><b>0${idx + 1}. ${st.name}</b> <span style="color:#94A3B8; font-size:10px;">(Roll ${st.roll})</span></div>
+                  <div style="display:flex; gap:4px;">
+                    <button class="status-pill-btn btn-pres ${st.status === 'present' ? 'selected' : ''}" data-student="${idx}" data-status="present">✓ Present</button>
+                    <button class="status-pill-btn btn-abs ${st.status === 'absent' ? 'selected' : ''}" data-student="${idx}" data-status="absent">✕ Absent</button>
+                    <button class="status-pill-btn btn-late ${st.status === 'late' ? 'selected' : ''}" data-student="${idx}" data-status="late">⏱ Late</button>
+                  </div>
+                </div>
+              `).join('');
+
+              rosterList.querySelectorAll('.status-pill-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                  const sIdx = parseInt(btn.dataset.student);
+                  const stVal = btn.dataset.status;
+                  curClass.students[sIdx].status = stVal;
+                  renderProdRoster();
+                  recalcProdKPIs();
+                  showProdToast(`${curClass.students[sIdx].name} marked as ${stVal.toUpperCase()}`);
+                });
+              });
+            }
+
+            if (phoneRoster) {
+              phoneRoster.innerHTML = curClass.students.slice(0, 3).map((st, idx) => `
+                <div class="phone-student-item">
+                  <span>0${idx + 1}. ${st.name.split(' ')[0]}</span>
+                  <button class="status-pill-btn ${st.status === 'present' ? 'btn-pres' : (st.status === 'absent' ? 'btn-abs' : 'btn-late')} selected phone-btn" data-student="${idx}">
+                    ${st.status === 'present' ? '✓ PRESENT' : (st.status === 'absent' ? '✕ ABSENT' : '⏱ LATE')}
+                  </button>
+                </div>
+              `).join('');
+
+              phoneRoster.querySelectorAll('.phone-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                  const sIdx = parseInt(btn.dataset.student);
+                  const current = curClass.students[sIdx].status;
+                  const next = current === 'present' ? 'absent' : (current === 'absent' ? 'late' : 'present');
+                  curClass.students[sIdx].status = next;
+                  renderProdRoster();
+                  recalcProdKPIs();
+                  showProdToast(`Mobile App: Updated ${curClass.students[sIdx].name} to ${next.toUpperCase()}`);
+                });
+              });
+            }
+          }
+
+          function renderProdProfile() {
+            const prof = state.studentProfiles[state.activeProfile];
+            if (!prof) return;
+            const nameEl = document.getElementById('prod-prof-name');
+            const subEl = document.getElementById('prod-prof-sub');
+            const rateEl = document.getElementById('prod-prof-rate');
+            const logsEl = document.getElementById('prod-prof-logs');
+            const guardianEl = document.getElementById('prod-prof-guardian');
+
+            if (nameEl) nameEl.innerText = prof.name;
+            if (subEl) subEl.innerText = prof.sub;
+            if (rateEl) rateEl.innerText = prof.rate;
+            if (guardianEl) guardianEl.innerText = prof.guardian;
+
+            if (logsEl) {
+              logsEl.innerHTML = prof.logs.map(log => `
+                <span style="background:${log.status === 'present' ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}; color:${log.status === 'present' ? '#10B981' : '#EF4444'}; padding:4px 8px; border-radius:12px; font-size:10px; font-weight:700;">
+                  ${log.label}
+                </span>
+              `).join('');
+            }
+          }
+
+          function renderProdReports() {
+            const rows = state.reportsData[state.reportMonth];
+            const tbody = document.getElementById('prod-reports-tbody');
+            if (tbody && rows) {
+              tbody.innerHTML = rows.map(r => `
+                <tr>
+                  <td>${r.roll}</td>
+                  <td><b>${r.name}</b></td>
+                  <td>${r.total}</td>
+                  <td>${r.present}</td>
+                  <td>${r.absent}</td>
+                  <td style="color:${r.color}; font-weight:700;">${r.rate}</td>
+                </tr>
+              `).join('');
+            }
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            const sidebarItems = document.querySelectorAll('#prod-sidebar-nav .sidebar-item');
+            const heroPanels = document.querySelectorAll('.hero-panel');
+            const topbarTitle = document.getElementById('prod-topbar-title');
+            const topbarSub = document.getElementById('prod-topbar-sub');
+
+            const titles = {
+              dashboard: "Institution Command Center",
+              mark: "Interactive Teacher Attendance Console",
+              classes: "Classes & Timetable Management",
+              reports: "Attendance Reports & Compliance",
+              profiles: "Student Profile Search & History"
+            };
+
+            const subs = {
+              dashboard: "Academic Year 2026-27 • Live Sync Active",
+              mark: "Select class and click student buttons to toggle status live",
+              classes: "Live Period Monitoring Across All Sections",
+              reports: "Automated Register Generator • May 2026",
+              profiles: "Select student to inspect individual attendance logs"
+            };
+
+            sidebarItems.forEach(item => {
+              item.addEventListener('click', () => {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                const panelKey = item.dataset.heroPanel;
+                const panelId = 'prod-panel-' + panelKey;
+
+                if (titles[panelKey]) topbarTitle.innerText = titles[panelKey];
+                if (subs[panelKey]) topbarSub.innerText = subs[panelKey];
+
+                document.querySelectorAll('.hero-panel').forEach(p => p.classList.toggle('active', p.id === panelId));
+                showProdToast('Switched layout to ' + item.innerText);
+              });
+            });
+
+            document.querySelectorAll('[data-prod-class]').forEach(btn => {
+              btn.addEventListener('click', () => {
+                document.querySelectorAll('[data-prod-class]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.activeClass = btn.dataset.prodClass;
+                renderProdRoster();
+                recalcProdKPIs();
+                showProdToast('Loaded ' + state.classesData[state.activeClass].title);
+              });
+            });
+
+            document.querySelectorAll('[data-prod-chart]').forEach(btn => {
+              btn.addEventListener('click', () => {
+                document.querySelectorAll('[data-prod-chart]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const chartBars = document.getElementById('prod-chart-bars');
+                if (chartBars) {
+                  chartBars.innerHTML = `
+                    <div class="bar-col"><div class="bar-fill" style="height: 95%;"></div><span class="bar-label">P1</span></div>
+                    <div class="bar-col"><div class="bar-fill" style="height: 92%;"></div><span class="bar-label">P2</span></div>
+                    <div class="bar-col"><div class="bar-fill" style="height: 98%;"></div><span class="bar-label">P3</span></div>
+                  `;
+                }
+                showProdToast('Chart filter updated');
+              });
+            });
+
+            document.querySelectorAll('[data-prod-prof]').forEach(btn => {
+              btn.addEventListener('click', () => {
+                document.querySelectorAll('[data-prod-prof]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.activeProfile = btn.dataset.prodProf;
+                renderProdProfile();
+                showProdToast('Profile updated');
+              });
+            });
+
+            document.querySelectorAll('[data-prod-report]').forEach(btn => {
+              btn.addEventListener('click', () => {
+                document.querySelectorAll('[data-prod-report]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.reportMonth = btn.dataset.prodReport;
+                renderProdReports();
+                showProdToast('Report month updated');
+              });
+            });
+
+            document.querySelectorAll('[data-prod-switch-class]').forEach(btn => {
+              btn.addEventListener('click', () => {
+                state.activeClass = btn.dataset.prodSwitchClass;
+                const markNav = document.getElementById('prod-nav-mark');
+                if (markNav) markNav.click();
+                const classBtn = document.querySelector(`[data-prod-class="${state.activeClass}"]`);
+                if (classBtn) classBtn.click();
+              });
+            });
+
+            const saveBtn = document.getElementById('prod-save-roster-btn');
+            if (saveBtn) {
+              saveBtn.addEventListener('click', () => {
+                saveBtn.innerText = '⏳ Syncing Attendance to Cloud...';
+                setTimeout(() => {
+                  saveBtn.innerText = 'Save Attendance & Sync to Cloud';
+                  showProdToast('✅ Attendance Saved & Synced to Cloud!');
+                }, 600);
+              });
+            }
+
+            renderProdRoster();
+            recalcProdKPIs();
+            renderProdProfile();
+            renderProdReports();
+          });
+        })();
+      </script>
     </div>
   </section>
 
@@ -597,6 +1112,29 @@
             <div style="background: #1E293B; padding: 14px; border-radius: 8px;">Absent: <b style="color: #F43F5E;">216</b></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Demo Section -->
+  <section id="product-demo" class="section section-subtle">
+    <div class="container">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto 48px;">
+        <span class="badge badge-emerald">PRODUCT DEMO</span>
+        <h2 style="font-family: var(--font-heading); font-size: 38px; font-weight: 800; margin-top: 12px;">
+          Explore the Full Product Experience
+        </h2>
+        <p style="font-size: 16px; color: var(--text-dark-secondary); margin-top: 10px;">
+          Interact with the core interfaces of Ebluesys Attendance Record Book across mobile, desktop, analytics, reports and student profiles.
+        </p>
+      </div>
+      <div class="demo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <div class="demo-item"><img src="images/screen_teacher_attendance.png" alt="Teacher Attendance Screen" loading="lazy"/></div>
+        <div class="demo-item"><img src="images/screen_admin_dashboard.png" alt="Admin Dashboard Screen" loading="lazy"/></div>
+        <div class="demo-item"><img src="images/screen_analytics.png" alt="Analytics Screen" loading="lazy"/></div>
+        <div class="demo-item"><img src="images/screen_reports.png" alt="Reports Screen" loading="lazy"/></div>
+        <div class="demo-item"><img src="images/screen_student_profile.png" alt="Student Profile Screen" loading="lazy"/></div>
+        <div class="demo-item"><img src="images/screen_mobile_dashboard.png" alt="Mobile Dashboard Screen" loading="lazy"/></div>
       </div>
     </div>
   </section>
