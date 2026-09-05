@@ -18,6 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initHowItWorksInteractivity();
   initProductPageInteractivity();
   initFeaturesPageInteractivity();
+  initThemeToggle();
+  initCommandPalette();
+  initFloatingDrawer();
+  initScrollReveal();
+  initAttendanceSandbox();
 });
 
 /* Sticky Header on Scroll */
@@ -559,6 +564,152 @@ function initFeaturesPageInteractivity() {
     });
   });
 }
+
+/* Theme Switcher Toggle */
+function initThemeToggle() {
+  const currentTheme = localStorage.getItem('ebluesys_theme') || 'dark';
+  if (currentTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+
+  document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('ebluesys_theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('ebluesys_theme', 'light');
+      }
+    });
+  });
+}
+
+/* Global Command Palette (Ctrl+K) */
+function initCommandPalette() {
+  const palette = document.querySelector('.cmd-palette-backdrop');
+  const input = document.querySelector('.cmd-palette-input');
+  if (!palette || !input) return;
+
+  const openCmd = () => {
+    palette.classList.add('active');
+    setTimeout(() => input.focus(), 50);
+  };
+
+  const closeCmd = () => {
+    palette.classList.remove('active');
+  };
+
+  document.querySelectorAll('.cmd-k-btn').forEach(btn => btn.addEventListener('click', openCmd));
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      palette.classList.contains('active') ? closeCmd() : openCmd();
+    }
+    if (e.key === 'Escape' && palette.classList.contains('active')) {
+      closeCmd();
+    }
+  });
+
+  palette.addEventListener('click', (e) => {
+    if (e.target === palette) closeCmd();
+  });
+
+  // Simple filter logic
+  input.addEventListener('input', () => {
+    const val = input.value.toLowerCase().trim();
+    const items = palette.querySelectorAll('.cmd-result-item');
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(val) ? 'flex' : 'none';
+    });
+  });
+}
+
+/* Floating FAB Drawer Widget */
+function initFloatingDrawer() {
+  const backdrop = document.querySelector('.fab-drawer-backdrop');
+  const fabBtns = document.querySelectorAll('.floating-fab-btn, .open-drawer-btn');
+  const closeBtns = document.querySelectorAll('.fab-drawer-close');
+
+  if (!backdrop) return;
+
+  fabBtns.forEach(btn => btn.addEventListener('click', () => backdrop.classList.add('active')));
+  closeBtns.forEach(btn => btn.addEventListener('click', () => backdrop.classList.remove('active')));
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) backdrop.classList.remove('active');
+  });
+
+  const drawerForm = document.getElementById('fab-drawer-form');
+  if (drawerForm) {
+    drawerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      drawerForm.innerHTML = `
+        <div style="text-align:center; padding:30px 10px; color:#34D399;">
+          <svg style="width:48px; height:48px; margin-bottom:12px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <h4 style="font-size:18px; font-weight:700; color:#FFF; margin-bottom:6px;">Demo Request Submitted!</h4>
+          <p style="font-size:13px; color:#94A3B8;">Our institutional solutions specialist will reach out within 2 hours.</p>
+        </div>
+      `;
+      setTimeout(() => backdrop.classList.remove('active'), 3000);
+    });
+  }
+}
+
+/* Scroll-Triggered Reveal Animations */
+function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal-on-scroll');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+/* Interactive Mini Attendance Sandbox Widget */
+function initAttendanceSandbox() {
+  const sandboxRows = document.querySelectorAll('.sandbox-student-row');
+  if (!sandboxRows.length) return;
+
+  const updateStats = () => {
+    let presentCount = 0;
+    const total = sandboxRows.length;
+    sandboxRows.forEach(row => {
+      const activeBtn = row.querySelector('.sandbox-status-btn.active');
+      if (activeBtn && activeBtn.classList.contains('present')) presentCount++;
+    });
+
+    const percent = Math.round((presentCount / total) * 100);
+    const meterEl = document.getElementById('sandbox-meter-val');
+    const percentEl = document.getElementById('sandbox-percent-val');
+    if (meterEl) meterEl.style.width = `${percent}%`;
+    if (percentEl) percentEl.textContent = `${percent}%`;
+  };
+
+  sandboxRows.forEach(row => {
+    const btns = row.querySelectorAll('.sandbox-status-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => {
+          b.classList.remove('active');
+          b.style.opacity = '0.5';
+        });
+        btn.classList.add('active');
+        btn.style.opacity = '1';
+        updateStats();
+      });
+    });
+  });
+}
+
 
 
 
