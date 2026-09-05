@@ -938,6 +938,7 @@
 @media (max-width: 640px) {
   .sec-transition-flow { gap: 6px; }
   .sec-trans-step { min-width: 70px; padding: 10px; }
+  .demo-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
 }
 .demo-grid .demo-item img { width: 100%; height: auto; border-radius: 8px; box-shadow: var(--shadow-md); }
 /* ------------------------------------------------------------------

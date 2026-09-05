@@ -2330,8 +2330,34 @@ input[type=range] {
 
 /* Responsive Media Queries */
 @media (max-width: 1024px) {
-  .dashboard-ui { grid-template-columns: 1fr; }
-  .sidebar-ui { display: none; }
+  .dashboard-ui { 
+    grid-template-columns: 1fr; 
+    height: auto;
+    min-height: 500px;
+  }
+  .sidebar-ui { 
+    display: block; 
+    border-right: none; 
+    border-bottom: 1px solid var(--border-dark); 
+    padding: 10px 14px; 
+    background: #0B1120;
+  }
+  .sidebar-brand { display: none; }
+  .sidebar-nav { 
+    flex-direction: row; 
+    overflow-x: auto; 
+    gap: 8px; 
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .sidebar-nav::-webkit-scrollbar { display: none; }
+  .sidebar-item { 
+    padding: 8px 14px; 
+    font-size: 12px; 
+    border-radius: 20px; 
+    flex-shrink: 0;
+  }
   .problem-grid, .transform-comparison, .roi-card, .erp-banner, .company-card { grid-template-columns: 1fr; }
   .cost-grid, .role-grid, .pricing-grid, .roadmap-grid { grid-template-columns: repeat(2, 1fr); }
   .mobile-mockup-floating { display: none; }
@@ -2341,8 +2367,30 @@ input[type=range] {
   .nav-menu { display: none; }
   .mobile-toggle { display: flex; }
   .mobile-bottom-bar { display: block; }
-  .cost-grid, .role-grid, .pricing-grid, .roadmap-grid, .kpi-grid, .chart-grid { grid-template-columns: 1fr; }
+  .cost-grid, .role-grid, .pricing-grid, .roadmap-grid, .chart-grid { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .kpi-card { padding: 12px; }
+  .kpi-val { font-size: 20px; }
   .form-grid { grid-template-columns: 1fr; }
   .form-full { grid-column: span 1; }
   .footer-grid { grid-template-columns: 1fr; }
+  .demo-grid { grid-template-columns: 1fr !important; }
+  .main-ui { padding: 16px; gap: 14px; }
+  .topbar-ui { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(26px, 7vw, 36px) !important; line-height: 1.2; }
+  .hero-subtitle { font-size: 15px !important; }
+  .hero-ctas { flex-direction: column; width: 100%; gap: 10px; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+  .hero-value-indicators { flex-direction: column; gap: 8px; align-items: center; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .kpi-card { padding: 10px; }
+  .kpi-val { font-size: 18px; }
+  .kpi-label { font-size: 10px; }
+  .kpi-sub { font-size: 10px; }
+  .ui-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .status-pill-btn { padding: 6px 10px; min-height: 36px; font-size: 11px; }
+  .hero-filter-btn { padding: 6px 12px; font-size: 11px; min-height: 32px; }
 }
