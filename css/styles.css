@@ -256,8 +256,13 @@ img, svg {
   transition: color var(--transition-fast);
 }
 
-.nav-link:hover {
+.nav-link:hover, .mobile-nav-link:hover {
   color: var(--primary-blue);
+}
+
+.nav-link.nav-link-active, .mobile-nav-link.nav-link-active {
+  color: var(--primary-blue) !important;
+  font-weight: 700 !important;
 }
 
 .nav-actions {
