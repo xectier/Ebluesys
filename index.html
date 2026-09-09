@@ -72,10 +72,8 @@
       </nav>
 
       <div class="nav-actions" style="display:flex; align-items:center; gap:10px;">
-        <button class="cmd-k-btn" aria-label="Search site">
+         <button class="cmd-k-btn" aria-label="Search site">
           <svg style="width:14px; height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          <span>Search</span>
-          <span class="cmd-k-badge">⌘K</span>
         </button>
         <button class="theme-toggle-btn" aria-label="Toggle theme">
           <svg style="width:14px; height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
@@ -105,7 +103,13 @@
     </ul>
     <a href="contact.html" class="btn btn-primary" style="width:100%;">Book a Live Demo</a>
   </div>
-
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.querySelector('.mobile-menu');
+    toggle?.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+  </script>
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
