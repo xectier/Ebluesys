@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/pages.css">
   <link rel="manifest" href="manifest.json">
 
@@ -30,40 +31,8 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo-group">
-        <div class="logo-icon">E</div>
-        <div class="logo-text">
-          <span class="brand-name">Ebluesys</span>
-          <span class="brand-tag">Attendance Record Book</span>
-        </div>
-      </a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="product.html" class="nav-link">Product</a></li>
-          <li><a href="layouts.html" class="nav-link">Layouts</a></li>
-          <li><a href="features.html" class="nav-link">Features</a></li>
-          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-          <li><a href="solutions.html" class="nav-link">Solutions</a></li>
-          <li><a href="security.html" class="nav-link">Security</a></li>
-          <li><a href="pricing.html" class="nav-link nav-link-active">Pricing</a></li>
-        </ul>
-      </nav>
-      <div class="nav-actions" style="display:flex; align-items:center; gap:10px;">
-        <button class="cmd-k-btn" aria-label="Search site">
-          <svg style="width:14px; height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          <span>Search</span>
-          <span class="cmd-k-badge">⌘K</span>
-        </button>
-        <button class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg style="width:14px; height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        </button>
-        <a href="contact.html" class="btn btn-primary">Book a Demo</a>
-      </div>
-    </div>
-  </header>
+  <!-- Header Navigation (Injected via Shared Component) -->
+  <header id="navbar-root" class="header"></header>
 
   <!-- Hero -->
   <section class="hero pg-hero">
@@ -329,27 +298,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Command Palette Modal -->
-  <div class="cmd-palette-backdrop">
-    <div class="cmd-palette-box">
-      <div class="cmd-palette-header">
-        <svg style="width:18px; height:18px; color:#94A3B8;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <input type="text" class="cmd-palette-input" placeholder="Search features, layouts, pricing, security..." aria-label="Command palette search">
-      </div>
-      <div class="cmd-palette-results">
-        <div class="cmd-result-group-title">Pages & Navigation</div>
-        <a href="product.html" class="cmd-result-item"><span>Product Command Console</span><span class="cmd-tag">Page</span></a>
-        <a href="layouts.html" class="cmd-result-item"><span>Dashboard Layout Templates</span><span class="cmd-tag">Layouts</span></a>
-        <a href="features.html" class="cmd-result-item"><span>Attendance & Analytics Features</span><span class="cmd-tag">Features</span></a>
-        <a href="pricing.html" class="cmd-result-item"><span>Pricing & ROI Calculator</span><span class="cmd-tag">Pricing</span></a>
-        <a href="how-it-works.html" class="cmd-result-item"><span>Teacher & Admin Workflow</span><span class="cmd-tag">Guide</span></a>
-        <a href="solutions.html" class="cmd-result-item"><span>Institutional Solutions</span><span class="cmd-tag">Solutions</span></a>
-        <a href="security.html" class="cmd-result-item"><span>Security & Data Compliance</span><span class="cmd-tag">Security</span></a>
-        <a href="contact.html" class="cmd-result-item"><span>Book a Live 15-Min Demo</span><span class="cmd-tag">Action</span></a>
-      </div>
-    </div>
-  </div>
 
   <!-- Floating Quick Demo Drawer -->
   <div class="floating-fab-wrap">

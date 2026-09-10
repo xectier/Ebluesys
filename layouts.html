@@ -14,6 +14,7 @@
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/pages.css">
 
   <style>
@@ -232,32 +233,8 @@
 </head>
 <body>
 
-  <!-- Navigation Header -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo-group">
-        <div class="logo-icon">E</div>
-        <div class="logo-text">
-          <span class="brand-name">Ebluesys</span>
-          <span class="brand-tag">Attendance Record Book</span>
-        </div>
-      </a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="product.html" class="nav-link">Product</a></li>
-          <li><a href="layouts.html" class="nav-link nav-link-active" style="color:var(--primary-blue); font-weight:700;">Layouts</a></li>
-          <li><a href="features.html" class="nav-link">Features</a></li>
-          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-          <li><a href="solutions.html" class="nav-link">Solutions</a></li>
-          <li><a href="security.html" class="nav-link">Security</a></li>
-          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-        </ul>
-      </nav>
-      <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary">Book a Demo</a>
-      </div>
-    </div>
-  </header>
+  <!-- Header Navigation (Injected via Shared Component) -->
+  <header id="navbar-root" class="header"></header>
 
   <!-- Hero Section -->
   <section class="layouts-hero">

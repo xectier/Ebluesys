@@ -1,0 +1,577 @@
+/* ==========================================================================
+   EBLUESYS SHARED NAVBAR COMPONENT STYLES
+   Provides a clean, seamless, mathematically balanced desktop navigation bar.
+   - Fixed height & single-line typography (no awkward line wraps)
+   - Unified segmented pill architecture for nav sections
+   - Perfectly centered baseline and aligned action controls
+   - 100% legibility in both light and dark backgrounds
+   ========================================================================== */
+
+/* Constant White Header */
+.header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 70px !important;
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02) !important;
+  z-index: 1000 !important;
+  transition: all 0.2s ease !important;
+}
+
+.header.scrolled {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border-bottom: 1px solid #CBD5E1 !important;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.07) !important;
+  height: 70px !important;
+}
+
+/* Nav Container */
+.nav-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  max-width: 1360px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  box-sizing: border-box !important;
+}
+
+/* Brand Identity */
+.logo-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+}
+
+.logo-icon {
+  width: 36px !important;
+  height: 36px !important;
+  background: linear-gradient(135deg, #2563EB, #1D4ED8) !important;
+  border-radius: 9px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  font-size: 17px !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25) !important;
+  flex-shrink: 0 !important;
+}
+
+.logo-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.brand-name {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 16.5px !important;
+  letter-spacing: -0.3px !important;
+  color: #0F172A !important;
+  line-height: 1.15 !important;
+}
+
+.brand-tag {
+  font-size: 9.5px !important;
+  font-weight: 700 !important;
+  color: #64748B !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  line-height: 1.15 !important;
+  margin-top: 1px !important;
+}
+
+/* ==========================================================================
+   DESKTOP NAVIGATION MENU (SEAMLESS SEGMENTED ARCHITECTURE)
+   ========================================================================== */
+.nav-menu-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 1 auto !important;
+  margin: 0 16px !important;
+}
+
+.nav-menu {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 4px !important;
+  background: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.03) !important;
+  flex-wrap: nowrap !important;
+}
+
+.nav-menu > li {
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+}
+
+/* Base Nav Item Link */
+.nav-link {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 550 !important;
+  color: #334155 !important;
+  text-decoration: none !important;
+  height: 34px !important;
+  line-height: 34px !important;
+  padding: 0 12px !important;
+  border-radius: 7px !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+/* Hover State: Subtle white pill elevation */
+.nav-link:hover {
+  color: #0F172A !important;
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Active State: Clean elevated card pill with bold blue accent */
+.nav-link.nav-link-active,
+.nav-dropdown-toggle.nav-link-active {
+  color: #1D4ED8 !important;
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Remove any floating bottom underlines to keep layout seamless */
+.nav-link.nav-link-active::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ==========================================================================
+   DROPDOWN CONTROLS & MENUS
+   ========================================================================== */
+.nav-item-dropdown {
+  position: relative !important;
+  list-style: none !important;
+}
+
+.nav-dropdown-toggle {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  height: 34px !important;
+  line-height: 34px !important;
+  padding: 0 12px !important;
+  border-radius: 7px !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 550 !important;
+  color: #334155 !important;
+  white-space: nowrap !important;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  user-select: none !important;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-item-dropdown.open .nav-dropdown-toggle,
+.nav-item-dropdown:hover .nav-dropdown-toggle {
+  color: #0F172A !important;
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Dropdown Arrow Chevron */
+.dropdown-arrow {
+  width: 11px !important;
+  height: 11px !important;
+  color: #64748B !important;
+  stroke: currentColor !important;
+  stroke-width: 2.2 !important;
+  flex-shrink: 0 !important;
+  margin-top: 1px !important;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s ease, opacity 0.15s ease !important;
+  opacity: 0.7 !important;
+}
+
+.nav-dropdown-toggle:hover .dropdown-arrow,
+.nav-item-dropdown.open .dropdown-arrow,
+.nav-item-dropdown:hover .dropdown-arrow {
+  color: #1D4ED8 !important;
+  transform: rotate(180deg) !important;
+  opacity: 1 !important;
+}
+
+/* Dropdown Flyout Card */
+.nav-dropdown-menu {
+  position: absolute !important;
+  top: calc(100% + 6px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(4px) !important;
+  min-width: 285px !important;
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  padding: 8px !important;
+  box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.05) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s !important;
+  z-index: 1050 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+}
+
+.nav-item-dropdown:hover .nav-dropdown-menu,
+.nav-item-dropdown:focus-within .nav-dropdown-menu,
+.nav-item-dropdown.open .nav-dropdown-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+.nav-dropdown-link {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  padding: 9px 12px !important;
+  border-radius: 8px !important;
+  color: #0F172A !important;
+  text-decoration: none !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
+}
+
+.nav-dropdown-link:hover,
+.nav-dropdown-link.active-item {
+  background: #F8FAFC !important;
+  color: #2563EB !important;
+}
+
+.nav-dropdown-icon {
+  font-size: 17px !important;
+  line-height: 1.2 !important;
+  flex-shrink: 0 !important;
+  margin-top: 1px !important;
+}
+
+.nav-dropdown-title {
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  color: #0F172A !important;
+  line-height: 1.3 !important;
+  transition: color 0.15s ease !important;
+}
+
+.nav-dropdown-link:hover .nav-dropdown-title {
+  color: #2563EB !important;
+}
+
+.nav-dropdown-desc {
+  font-size: 11.5px !important;
+  color: #64748B !important;
+  margin-top: 2px !important;
+  line-height: 1.3 !important;
+}
+
+.nav-dropdown-divider {
+  height: 1px !important;
+  background: #E2E8F0 !important;
+  margin: 4px 0 !important;
+}
+
+.nav-dropdown-footer-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 12px !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  color: #2563EB !important;
+  background: #EFF6FF !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  transition: background 0.15s ease !important;
+}
+
+.nav-dropdown-footer-link:hover {
+  background: #DBEAFE !important;
+}
+
+/* ==========================================================================
+   NAV ACTION BAR (SEARCH, THEME TOGGLE, CTA)
+   All matching 36px height for pixel-perfect vertical harmony
+   ========================================================================== */
+.nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Search Trigger Button */
+.nav-search-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  height: 36px !important;
+  background: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #475569 !important;
+  padding: 0 12px !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: all 0.15s ease !important;
+}
+
+.nav-search-btn:hover {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+}
+
+.nav-search-btn svg {
+  color: #64748B !important;
+  flex-shrink: 0 !important;
+}
+
+.nav-search-btn:hover svg {
+  color: #2563EB !important;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #475569 !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  transition: all 0.15s ease !important;
+}
+
+.theme-toggle-btn:hover {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+}
+
+.theme-toggle-btn svg {
+  color: #475569 !important;
+}
+
+.theme-toggle-btn:hover svg {
+  color: #0F172A !important;
+}
+
+/* Book Demo Primary CTA */
+.nav-cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 36px !important;
+  padding: 0 16px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  background: #2563EB !important;
+  color: #FFFFFF !important;
+  border: 1px solid #1D4ED8 !important;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.25) !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+  transition: all 0.15s ease !important;
+}
+
+.nav-cta-btn:hover {
+  background: #1D4ED8 !important;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.35) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ==========================================================================
+   THE MENU BUTTON (MOBILE TOGGLE HAMBURGER)
+   Color: Bold solid black for maximum visibility against the white navbar
+   ========================================================================== */
+.mobile-toggle {
+  display: none !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 5px !important;
+  width: 38px !important;
+  height: 38px !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  z-index: 1001 !important;
+  padding: 6px !important;
+  color: #000000 !important;
+  transition: background 0.15s ease, border-color 0.15s ease !important;
+}
+
+.mobile-toggle:hover {
+  background: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* The three hamburger menu lines are ALWAYS bold solid black */
+.mobile-toggle span {
+  display: block !important;
+  width: 22px !important;
+  height: 2.5px !important;
+  background-color: #000000 !important;
+  background: #000000 !important;
+  border-radius: 2px !important;
+  transition: all 0.25s ease !important;
+}
+
+/* Active hamburger animation */
+.mobile-toggle.open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg) !important;
+}
+
+.mobile-toggle.open span:nth-child(2) {
+  opacity: 0 !important;
+}
+
+.mobile-toggle.open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg) !important;
+}
+
+/* Mobile Drawer (Clean white backdrop with dark text) */
+.mobile-menu {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE OPTIMIZATIONS
+   ========================================================================== */
+@media (max-width: 1240px) {
+  .brand-tag {
+    display: none !important;
+  }
+  .nav-menu-wrapper {
+    margin: 0 8px !important;
+  }
+  .nav-menu {
+    gap: 1px !important;
+    padding: 3px !important;
+  }
+  .nav-link,
+  .nav-dropdown-toggle {
+    padding: 0 9px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 1060px) {
+  .nav-menu {
+    gap: 0 !important;
+  }
+  .nav-link,
+  .nav-dropdown-toggle {
+    padding: 0 7px !important;
+    font-size: 12.5px !important;
+  }
+  .nav-search-text {
+    display: none !important;
+  }
+  .nav-search-btn {
+    padding: 0 10px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-menu-wrapper {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+  }
+
+  .mobile-menu {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    position: fixed !important;
+    inset: 0 !important;
+    background-color: #FFFFFF !important;
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    z-index: 9999 !important;
+    flex-direction: column !important;
+    padding: 24px 20px 32px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .mobile-menu.active,
+  .mobile-menu.open {
+    display: flex !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-close-btn {
+    color: #000000 !important;
+    background: #F1F5F9 !important;
+    border: 1px solid #E2E8F0 !important;
+  }
+
+  .mobile-nav-link {
+    color: #0F172A !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+  }
+
+  .mobile-sub-link {
+    color: #334155 !important;
+  }
+}

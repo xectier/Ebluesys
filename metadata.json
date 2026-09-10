@@ -1,0 +1,6 @@
+{
+  "name": "Digital Attendance Management System | Ebluesys",
+  "description": "Digital Attendance Record Book helps schools and colleges simplify attendance marking, monitoring, analytics and reporting with a modern digital attendance management platform by Ebluesys Technologies Private Limited.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

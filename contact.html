@@ -8,34 +8,13 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232563EB%22/><text y=%22.9em%22 x=%22.2em%22 font-size=%2270%22 font-weight=%22bold%22 fill=%22white%22>E</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo-group">
-        <div class="logo-icon">E</div>
-        <div class="logo-text">
-          <span class="brand-name">Ebluesys</span>
-          <span class="brand-tag">Attendance Record Book</span>
-        </div>
-      </a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="product.html" class="nav-link">Product</a></li>
-          <li><a href="features.html" class="nav-link">Features</a></li>
-          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-          <li><a href="solutions.html" class="nav-link">Solutions</a></li>
-          <li><a href="security.html" class="nav-link">Security</a></li>
-          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-        </ul>
-      </nav>
-      <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary" style="background:var(--primary-blue-hover);">Book a Demo</a>
-      </div>
-    </div>
-  </header>
+  <!-- Header Navigation (Injected via Shared Component) -->
+  <header id="navbar-root" class="header"></header>
 
   <!-- Hero & Form Section -->
   <section class="section" style="padding-top:140px;">

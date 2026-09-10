@@ -3,9 +3,9 @@
    Interactive Application Logic (Upgraded Version)
    ========================================================================== */
 
+import './navbar.js';
+
 document.addEventListener('DOMContentLoaded', () => {
-  initHeaderScroll();
-  initMobileMenu();
   initProductTabs();
   initProductTour();
   initDashboardDemo();
@@ -18,43 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initHowItWorksInteractivity();
   initProductPageInteractivity();
   initFeaturesPageInteractivity();
-  initThemeToggle();
-  initCommandPalette();
   initFloatingDrawer();
   initScrollReveal();
   initAttendanceSandbox();
 });
 
-/* Sticky Header on Scroll */
-function initHeaderScroll() {
-  const header = document.querySelector('.header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-}
-
-/* Mobile Drawer Menu */
-function initMobileMenu() {
-  const toggle = document.querySelector('.mobile-toggle');
-  const menu = document.querySelector('.mobile-menu');
-  const links = document.querySelectorAll('.mobile-nav-link');
-
-  if (!toggle || !menu) return;
-
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
-  });
-
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('active');
-    });
-  });
-}
+/* Sticky Header & Mobile Drawer (Managed by navbar.js) */
 
 /* Product Introduction Showcase Tabs */
 function initProductTabs() {
@@ -565,68 +534,6 @@ function initFeaturesPageInteractivity() {
   });
 }
 
-/* Theme Switcher Toggle */
-function initThemeToggle() {
-  const currentTheme = localStorage.getItem('ebluesys_theme') || 'dark';
-  if (currentTheme === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-  }
-
-  document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      if (isLight) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('ebluesys_theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('ebluesys_theme', 'light');
-      }
-    });
-  });
-}
-
-/* Global Command Palette (Ctrl+K) */
-function initCommandPalette() {
-  const palette = document.querySelector('.cmd-palette-backdrop');
-  const input = document.querySelector('.cmd-palette-input');
-  if (!palette || !input) return;
-
-  const openCmd = () => {
-    palette.classList.add('active');
-    setTimeout(() => input.focus(), 50);
-  };
-
-  const closeCmd = () => {
-    palette.classList.remove('active');
-  };
-
-  document.querySelectorAll('.cmd-k-btn').forEach(btn => btn.addEventListener('click', openCmd));
-
-  document.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-      e.preventDefault();
-      palette.classList.contains('active') ? closeCmd() : openCmd();
-    }
-    if (e.key === 'Escape' && palette.classList.contains('active')) {
-      closeCmd();
-    }
-  });
-
-  palette.addEventListener('click', (e) => {
-    if (e.target === palette) closeCmd();
-  });
-
-  // Simple filter logic
-  input.addEventListener('input', () => {
-    const val = input.value.toLowerCase().trim();
-    const items = palette.querySelectorAll('.cmd-result-item');
-    items.forEach(item => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(val) ? 'flex' : 'none';
-    });
-  });
-}
 
 /* Floating FAB Drawer Widget */
 function initFloatingDrawer() {
